@@ -10,7 +10,7 @@ export function getInitialData() {
         _getQuestions(),
         _getUsers()
         ])
-        .then(([users, questions]) => {
+        .then(([users, questions]) => { //returned list is destructured in function definition
             return {
                 users,
                 questions,
