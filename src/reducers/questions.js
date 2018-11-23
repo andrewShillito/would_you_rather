@@ -1,4 +1,4 @@
-import { RECEIVE_QUESTIONS } from "../actions/questions.js";
+import { RECEIVE_QUESTIONS } from "../actions/questions";
 
 export default function questions(store = {}, action) {
     switch(action.type) {
