@@ -115,16 +115,19 @@ let questions = {
   },
 }
 
+//makes a 22 char base 36 id
 function generateUID () {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 }
 
+//returns a promise containing users object that resolves in 1 sec
 export function _getUsers () {
   return new Promise((res, rej) => {
     setTimeout(() => res({...users}), 1000)
   })
 }
 
+//returns a promise containing questions object that resolves in 1 sec
 export function _getQuestions () {
   return new Promise((res, rej) => {
     setTimeout(() => res({...questions}), 1000)
