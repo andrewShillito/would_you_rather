@@ -13,9 +13,9 @@ class Avatar extends Component {
     }
 }
 
-function mapStateToProps({ authedUser, users }) {
+function mapStateToProps({ users }, {user}) {
     return {
-        avatarURL: authedUser !== null ? users[authedUser].avatarURL : "" 
+        avatarURL: user !== null ? users[user].avatarURL : "" 
     };
 }
 

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Avatar from "./Avatar";
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
 import Login from "./Login";
+
+import UserCard from "./UserCard"
 
 class App extends Component {
   componentDidMount() {
@@ -14,7 +15,7 @@ class App extends Component {
         { this.props.authedUser !== null 
           ? (<div>
               <h1>Hello {this.props.authedUser}, {this.props.name}</h1>
-              <Avatar />
+              <UserCard />
             </div>)
           : <Login />
         }
