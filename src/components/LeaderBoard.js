@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import LeaderCard from "./LeaderCard";
+import Leader from "./Leader";
 
 class LeaderBoard extends Component {
     render() {
-        
         const { leaders } = this.props;
         return (
             <div className="leader-board">
                 {leaders.map((leader) => (
-                    <LeaderCard id={leader.id} key={leader.id}/>
+                    <Leader id={leader.id} key={leader.id}/>
                 ))}
             </div>
         );
