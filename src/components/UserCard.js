@@ -32,10 +32,10 @@ class UserCard extends Component {
     }
 }
 
-function mapStateToProps({ authedUser, users }) {
+function mapStateToProps({ authedUser, users }, {id}) {
     return {
         authedUser,
-        user: users[authedUser] !== undefined ? users[authedUser] : null
+        user: users[id] !== undefined ? users[id] : null
     };
 }
 

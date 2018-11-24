@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
 import Login from "./Login";
 
-import UserCard from "./UserCard"
+import LeaderBoard from "./LeaderBoard";
 
 class App extends Component {
   componentDidMount() {
@@ -15,7 +15,7 @@ class App extends Component {
         { this.props.authedUser !== null 
           ? (<div>
               <h1>Hello {this.props.authedUser}, {this.props.name}</h1>
-              <UserCard />
+              <LeaderBoard />
             </div>)
           : <Login />
         }
