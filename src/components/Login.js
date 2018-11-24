@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { login } from "../actions/authedUser"
+import { login } from "../actions/authedUser";
 
 class Login extends Component {
     state = {
@@ -17,6 +17,7 @@ class Login extends Component {
         }));
     }
     render() {
+        // todo: change to use a select box built of divs/a tags so can have user avatars included
         return (
             <div>
                 { this.props.users.length 
