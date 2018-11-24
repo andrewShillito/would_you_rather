@@ -1,15 +1,15 @@
-export const LOG_IN_USER = "LOG_IN_USER";
-export const LOG_OUT_USER = "LOG_OUT_USER";
+export const LOGIN = "LOGIN";
+export const LOGOUT = "LOGOUT";
 
-export function logInUser(id) {
+export function login(id) {
     return {
-        type: LOG_IN_USER,
+        type: LOGIN,
         id,
     };
 }
 
-export function logOutUser() {
+export function logout() {
     return {
-        type: LOG_OUT_USER,
+        type: LOGOUT,
     };
 }

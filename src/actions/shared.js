@@ -1,7 +1,7 @@
 import { receiveQuestions } from "./questions";
 import { receiveUsers } from "./users";
 import { getInitialData } from "../utils/api";
-import { logInUser } from "./authedUser"
+import { login } from "./authedUser"
 
 function selectAuthedId () {
     const users = ["sarahedo", "tylermcginnis", "johndoe"];
@@ -18,7 +18,7 @@ export function handleInitialData() {
             .then(({ users, questions }) => {
                 dispatch(receiveQuestions(questions));
                 dispatch(receiveUsers(users));
-                dispatch(logInUser(AUTHED_ID));
+                dispatch(login(AUTHED_ID));
             });
     };
 }

@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import Avatar from "./Avatar";
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
+import { handleLogin } from "../actions/authedUser";
+import Login from "./Login";
 
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData());
+  }
+  handleLogin = (e) => {
   }
   render() {
     return (
@@ -15,8 +19,9 @@ class App extends Component {
               <h1>Hello {this.props.authedUser}, {this.props.name}</h1>
               <Avatar />
             </div>)
-          : <h1>Sign in</h1>
+          : <Login />
         }
+        <Login />
       </div>
     );
   }

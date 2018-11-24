@@ -1,10 +1,10 @@
-import { LOG_IN_USER, LOG_OUT_USER } from "../actions/authedUser";
+import { LOGIN, LOGOUT } from "../actions/authedUser";
 
 export default function authedUser(store = null, action) {
     switch(action.type) {
-        case LOG_IN_USER:
+        case LOGIN:
             return action.id;
-        case LOG_OUT_USER:
+        case LOGOUT:
             return null;
         default:
             return store;
