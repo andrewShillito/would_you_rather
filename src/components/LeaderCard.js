@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Avatar from "./Avatar";
 
-class UserCard extends Component {
+class LeaderCard extends Component {
     componentDidMount() {
         console.log(this.props);
     }
@@ -39,4 +39,4 @@ function mapStateToProps({ authedUser, users }, {id}) {
     };
 }
 
-export default connect(mapStateToProps)(UserCard)
+export default connect(mapStateToProps)(LeaderCard);

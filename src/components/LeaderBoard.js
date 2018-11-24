@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import UserCard from "./UserCard";
+import LeaderCard from "./LeaderCard";
 
 class LeaderBoard extends Component {
     render() {
@@ -9,7 +9,7 @@ class LeaderBoard extends Component {
         return (
             <div className="leader-board">
                 {leaders.map((leader) => (
-                    <UserCard id={leader.id} key={leader.id}/>
+                    <LeaderCard id={leader.id} key={leader.id}/>
                 ))}
             </div>
         );
