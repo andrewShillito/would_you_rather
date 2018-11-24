@@ -9,7 +9,12 @@ class Login extends Component {
                     ? <form>
                         <select>
                             { this.props.users.map(user => (
-                                <option key={user}>{user}</option>
+                                <option key={user.id}>
+                                    <span>
+                                        <img src={user.avatarURL} alt=""/>
+                                    </span>
+                                    {user.name}
+                                </option>
                             ))}
                         </select>
                       </form>
@@ -22,7 +27,11 @@ class Login extends Component {
 
 function mapStateToProps({ users }) {
     return {
-        users: Object.keys(users).map(user => users[user].id)
+        users: Object.keys(users).map(user => ({
+            id: users[user].id,
+            avatarURL: users[user].avatarURL,
+            name: users[user].name
+        }))
     };
 }
 
