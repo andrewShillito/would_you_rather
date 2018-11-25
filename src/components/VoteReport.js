@@ -17,4 +17,6 @@ class VoteReport extends Component {
     }
 }
 
+// todo: make into a stateless functional component
+
 export default VoteReport;

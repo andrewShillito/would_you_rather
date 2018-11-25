@@ -6,6 +6,7 @@ import Login from "./Login";
 import LeaderBoard from "./LeaderBoard";
 import Question from "./Question";
 import Answer from "./Answer";
+import QuestionList from "./QuestionList";
 
 class App extends Component {
   componentDidMount() {
@@ -23,6 +24,8 @@ class App extends Component {
               <Question qid="6ni6ok3ym7mf1p33lnez"/>
               <hr />
               <Answer qid="6ni6ok3ym7mf1p33lnez" />
+              <hr />
+              <QuestionList />
             </div>)
           : <Login />
         }
