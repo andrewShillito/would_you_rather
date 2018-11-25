@@ -4,6 +4,7 @@ import { handleInitialData } from "../actions/shared";
 import Login from "./Login";
 
 import LeaderBoard from "./LeaderBoard";
+import Question from "./Question"
 
 class App extends Component {
   componentDidMount() {
@@ -15,7 +16,10 @@ class App extends Component {
         { this.props.authedUser !== null 
           ? (<div>
               <h1>Hello {this.props.authedUser}, {this.props.name}</h1>
+              <hr />
               <LeaderBoard />
+              <hr />
+              <Question qid="6ni6ok3ym7mf1p33lnez"/>
             </div>)
           : <Login />
         }
@@ -33,3 +37,5 @@ function mapStateToProps({ authedUser, users }) {
 }
 
 export default connect(mapStateToProps)(App);
+
+//todo: question component will be passed question id by router (maybe with router)
