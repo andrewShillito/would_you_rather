@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Avatar from "./Avatar";
+import VoteReport from "./VoteReport";
 
 class Answer extends Component {
     render() {
@@ -22,22 +23,19 @@ class Answer extends Component {
                 <div>
                     <h1>Results:</h1>
                     
-                    <div className={answer === "optionOne" ? "answer-selected" : ""}>
-                        <h3>{`Would you rather ${question.optionOne.text}?`}</h3>
-                        <div className="progress-bar">
-                            <div className="progress-bar-inner"></div>
-                        </div>
-                        <p>{`${optionOneVotes} out of ${totalNumVotes} votes`}</p>
-                    </div>
+                    <VoteReport 
+                        selected={answer === "optionOne"}
+                        text={`Would you rather ${question.optionOne.text}?`}
+                        numVotes={optionOneVotes}
+                        totalVotes={totalNumVotes}
+                    />
                     
-                    <div className={answer === "optionTwo" ? "answer-selected" : ""}>
-                        <h3>{`Would you rather ${question.optionTwo.text}?`}</h3>
-                        <div className="progress-bar">
-                            <div className="progress-bar-inner"></div>
-                        </div>
-                        <p>{`${optionTwoVotes} out of ${totalNumVotes} votes`}</p>
-                    </div>
-                    
+                    <VoteReport 
+                        selected={answer === "optionTwo"}
+                        text={`Would you rather ${question.optionTwo.text}?`}
+                        numVotes={optionTwoVotes}
+                        totalVotes={totalNumVotes}
+                    />
                     
                 </div>
             </div>
