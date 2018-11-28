@@ -57,5 +57,3 @@ function mapStateToProps({ authedUser, users, questions }) {
 }
 
 export default connect(mapStateToProps)(App);
-
-//todo: question component will be passed question id by router (maybe with router)
