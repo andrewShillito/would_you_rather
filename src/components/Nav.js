@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { logout } from "../actions/authedUser"
 
 class Nav extends Component {
     handleClick = (e) => {
@@ -9,7 +11,9 @@ class Nav extends Component {
             alert("Please login to access app features.");
         }
     }
-    
+    handleLogout = () => {
+        this.props.dispatch(logout());
+    }
     render() {
         return (
             <nav className="nav">
@@ -29,15 +33,19 @@ class Nav extends Component {
                         LeaderBoard
                     </NavLink>
                 </li>
-                <li>
-                    <NavLink to="/logout" activeClassName="active" onClick={this.handleClick}>
-                        Logout
-                    </NavLink>
-                </li>
+                {!this.props.loggedIn
+                    ? null
+                    : 
+                    <li>
+                        <NavLink to="/" activeClassName="active" onClick={this.handleLogout}>
+                            Logout
+                        </NavLink>
+                    </li>
+                }
                 </ul>
             </nav> 
         );
     }
 }
 
-export default Nav;
+export default connect()(Nav);
