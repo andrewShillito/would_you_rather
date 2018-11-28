@@ -22,10 +22,11 @@ class App extends Component {
           <Nav />
           { this.props.authedUser !== null 
           ? <div>
-              <Route path="/" exact component={QuestionList} />
+              <Route path="/" exact component={QuestionList}/>
               <Route path="/leaderboard" component={LeaderBoard} />
+              <Route path="/question/:qid" render={props => <Question qid={props.match.params.qid}/> } />
             </div>
-          : <Login />
+          : <Route path="/" exact render={props => <Login props={props} />} />
         }
       </div>
   </Router>

@@ -56,7 +56,7 @@ class Question extends Component {
     }
 }
 
-function mapStateToProps({ questions, authedUser, users }, {qid}) {
+function mapStateToProps({ questions, authedUser, users }, { qid }) {
     return {
         question: questions[qid],
         authedUser,

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class QuestionPreview extends Component {
     render() {
@@ -8,6 +9,9 @@ class QuestionPreview extends Component {
         return (
             <div>
                 {this.props.text}
+                <Link to={`/question/${this.props.id}`}>
+                    Question
+                </Link>
             </div>
         )
     }

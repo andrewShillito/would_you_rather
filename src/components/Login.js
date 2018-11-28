@@ -19,6 +19,7 @@ class Login extends Component {
     render() {
         // todo: change to use a select box built of divs/a tags so can have user avatars included
         return (
+            
             <div>
                 { this.props.users.length 
                     ? (<div>
@@ -52,8 +53,8 @@ function mapStateToProps({ users }) {
         users: Object.keys(users).map(user => ({
             id: users[user].id,
             avatarURL: users[user].avatarURL,
-            name: users[user].name
-        }))
+            name: users[user].name,
+        })),
     };
 }
 
