@@ -1,5 +1,4 @@
-import { RECEIVE_QUESTIONS } from "../actions/questions";
-import { ANSWER_QUESTION } from "../actions/questions";
+import { RECEIVE_QUESTIONS, ANSWER_QUESTION, CREATE_QUESTION } from "../actions/questions";
 
 export default function questions(store = {}, action) {
     switch(action.type) {
@@ -20,7 +19,29 @@ export default function questions(store = {}, action) {
                     }
                 }
             };
+        case CREATE_QUESTION :
+            // need to update questions
+            return {
+                ...store,
+                [action.question.id]: action.question 
+                //I think this is right, i think I don't need to spread it
+            };
         default:
             return store;
     }
 }
+
+// Question structure
+//   return {
+//     id: generateUID(),
+//     timestamp: Date.now(),
+//     author,
+//     optionOne: {
+//       votes: [],
+//       text: optionOneText,
+//     },
+//     optionTwo: {
+//       votes: [],
+//       text: optionTwoText,
+//     }
+//   }

@@ -1,5 +1,5 @@
 import { RECEIVE_USERS } from "../actions/users";
-import { ANSWER_QUESTION } from "../actions/questions";
+import { ANSWER_QUESTION, CREATE_QUESTION } from "../actions/questions";
 
 export default function users(store = {}, action) {
     switch(action.type) {
@@ -18,6 +18,17 @@ export default function users(store = {}, action) {
                         ...store[authedUser].answers,
                         [qid]: answer,
                     }
+                }
+            };
+        case CREATE_QUESTION:
+            // need to update author user's questions
+            const author = action.question.author;
+            const id = action.question.id;
+            return {
+                ...store,
+                [author]: {
+                    ...store[author],
+                    questions: store[author].questions.concat([id]),
                 }
             };
         default:

@@ -14,7 +14,7 @@ class QuestionList extends Component {
     }
     render() {
         const { answered, unanswered, users } = this.props;
-        const answer = this.state.selected === "answered"
+        const questionList = this.state.selected === "answered"
             ? <div>
                 {answered.map((question) => {
                     return (
@@ -48,7 +48,7 @@ class QuestionList extends Component {
                     <button value="answered" disabled={this.state.selected==="answered"} onClick={this.handleClick}>Answered</button>
                     <button value="unanswered" disabled={this.state.selected!=="answered"} onClick={this.handleClick}>Unanswered</button>
                 </div>
-                {answer}
+                {questionList}
             </div>
         );
     }
@@ -69,31 +69,3 @@ function mapStateToProps({ questions, users, authedUser }) {
 }
 
 export default connect(mapStateToProps)(QuestionList);
-
-// return (
-//             <div>
-//                 {answered.map((question) => {
-//                     return (
-//                         <QuestionPreview 
-//                             author={question.author}
-//                             name={users[question.author].name}
-//                             text={question.optionOne.text}
-//                             id={question.id}
-//                             key={question.id}
-//                         />
-//                     );
-//                 })}
-//                 {unanswered.map((question) => {
-//                     return (
-//                         <QuestionPreview 
-//                             author={question.author}
-//                             name={users[question.author].name}
-//                             avatarURL={users[question.author].avatarURL}
-//                             text={question.optionOne.text}
-//                             id={question.id}
-//                             key={question.id}
-//                         />
-//                     );
-//                 })}
-//             </div>
-//         );
