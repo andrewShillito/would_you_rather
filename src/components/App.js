@@ -26,7 +26,7 @@ class App extends Component {
               <Route path="/leaderboard" component={LeaderBoard} />
               <Route path="/question/:qid" render={props => <Question qid={props.match.params.qid}/> } />
             </div>
-          : <Route path="/" exact render={props => <Login props={props} />} />
+          : <Route path="/" exact component={Login} />
         }
       </div>
   </Router>
