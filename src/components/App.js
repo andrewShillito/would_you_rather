@@ -19,12 +19,18 @@ class App extends Component {
       
       <Router>
         <div>
-          <Nav />
+          <Nav loggedIn={this.props.authedUser !== null}/>
           { this.props.authedUser !== null 
           ? <div>
               <Route path="/" exact component={QuestionList}/>
               <Route path="/leaderboard" component={LeaderBoard} />
-              <Route path="/question/:qid" render={props => <Question qid={props.match.params.qid}/> } />
+              <Route path="/question/:qid" render={props => {
+                const qid = props.match.params.qid;
+                return ( this.props.questions[qid].optionOne.votes.includes(this.props.authedUser) ||
+                this.props.questions[qid].optionTwo.votes.includes(this.props.authedUser) ) 
+                ? <Answer qid={qid} />
+                : <Question qid={qid}/> 
+              }} />
             </div>
           : <Route path="/" exact component={Login} />
         }
@@ -34,10 +40,11 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, users }) {
+function mapStateToProps({ authedUser, users, questions }) {
   return {
     authedUser,
     name: authedUser !== null ? users[authedUser].name : null,
+    questions,
     // todo: implement loading functionality
   };
 }
