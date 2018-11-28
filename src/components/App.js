@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
 import Login from "./Login";
+import Nav from "./Nav";
 
 import LeaderBoard from "./LeaderBoard";
 import Question from "./Question";
@@ -14,22 +16,19 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        { this.props.authedUser !== null 
-          ? (<div>
-              <h1>Hello {this.props.authedUser}, {this.props.name}</h1>
-              <hr />
-              <LeaderBoard />
-              <hr />
-              <Question qid="6ni6ok3ym7mf1p33lnez"/>
-              <hr />
-              <Answer qid="6ni6ok3ym7mf1p33lnez" />
-              <hr />
-              <QuestionList />
-            </div>)
+      
+      <Router>
+        <div>
+          <Nav />
+          { this.props.authedUser !== null 
+          ? <div>
+              <Route path="/" exact component={QuestionList} />
+              <Route path="/leaderboard" component={LeaderBoard} />
+            </div>
           : <Login />
         }
       </div>
+  </Router>
     );
   }
 }
