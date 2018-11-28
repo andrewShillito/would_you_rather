@@ -9,6 +9,7 @@ class Login extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.dispatch(login(this.state.value));
+        this.props.history.push("/questions"); //redirect to home page when form is submitted
     }
     handleChange = (e) => {
         const value = e.target.value;

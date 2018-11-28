@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
 import Login from "./Login";
@@ -22,17 +22,24 @@ class App extends Component {
           <Nav loggedIn={this.props.authedUser !== null}/>
           { this.props.authedUser !== null 
           ? <div>
-              <Route path="/" exact component={QuestionList}/>
-              <Route path="/leaderboard" component={LeaderBoard} />
-              <Route path="/question/:qid" render={props => {
-                const qid = props.match.params.qid;
-                return ( this.props.questions[qid].optionOne.votes.includes(this.props.authedUser) ||
-                this.props.questions[qid].optionTwo.votes.includes(this.props.authedUser) ) 
-                ? <Answer qid={qid} />
-                : <Question qid={qid}/> 
-              }} />
+              <Switch>
+                <Route path="/" exact render={props => (
+                  <Redirect to="/questions" />
+                )}
+                  
+                />
+                <Route path="/questions" exact component={QuestionList}/>
+                <Route path="/leaderboard" component={LeaderBoard} />
+                <Route path="/questions/:qid" render={props => {
+                  const qid = props.match.params.qid;
+                  return ( this.props.questions[qid].optionOne.votes.includes(this.props.authedUser) ||
+                  this.props.questions[qid].optionTwo.votes.includes(this.props.authedUser) ) 
+                  ? <Answer qid={qid} />
+                  : <Question qid={qid}/> 
+                }} />
+              </Switch>
             </div>
-          : <Route path="/" exact component={Login} />
+          : <Route path="/" component={Login} />
         }
       </div>
   </Router>
