@@ -11,6 +11,9 @@ import Answer from "./Answer";
 import QuestionList from "./QuestionList";
 import New from "./New";
 
+import UserCard from "./UserCard";
+import Leader from "./Leader";
+
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData());
@@ -20,7 +23,7 @@ class App extends Component {
       
       <Router>
         <div>
-          <Nav loggedIn={this.props.authedUser !== null}/>
+          <Nav loggedIn={this.props.authedUser !== null} authedUser={this.props.authedUser}/>
           { this.props.authedUser !== null 
           ? <div>
               <Switch>
@@ -38,6 +41,14 @@ class App extends Component {
                   this.props.questions[qid].optionTwo.votes.includes(this.props.authedUser) ) 
                   ? <Answer qid={qid} />
                   : <Question qid={qid}/>;
+                }} />
+                <Route path="users/:id" render={props => {
+                  const id = props.match.params.id;
+                  return (
+                    <UserCard>
+                      <Leader id={id} />
+                    </UserCard>
+                  );
                 }} />
               </Switch>
             </div>

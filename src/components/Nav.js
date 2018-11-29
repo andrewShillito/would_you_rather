@@ -42,6 +42,11 @@ class Nav extends Component {
                         </NavLink>
                     </li>
                 }
+                <li>
+                    <NavLink to={`/users/${this.props.authedUser}`} activeClassName="active" onClick={this.handleClick}>
+                        User
+                    </NavLink>
+                </li>
                 </ul>
             </nav> 
         );
