@@ -9,7 +9,7 @@ import LeaderBoard from "./LeaderBoard";
 import Question from "./Question";
 import Answer from "./Answer";
 import QuestionList from "./QuestionList";
-import New from "./New"
+import New from "./New";
 
 class App extends Component {
   componentDidMount() {
@@ -37,14 +37,14 @@ class App extends Component {
                   return ( this.props.questions[qid].optionOne.votes.includes(this.props.authedUser) ||
                   this.props.questions[qid].optionTwo.votes.includes(this.props.authedUser) ) 
                   ? <Answer qid={qid} />
-                  : <Question qid={qid}/> 
+                  : <Question qid={qid}/>;
                 }} />
               </Switch>
             </div>
           : <Route path="/" component={Login} />
         }
-      </div>
-  </Router>
+        </div>
+    </Router>
     );
   }
 }

@@ -16,7 +16,6 @@ class Question extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const answer = this.state.selected;
-        console.log("Q submit val:", answer);
         this.props.dispatch(handleAnswerQuestion({
             answer,
             authedUser: this.props.authedUser,
