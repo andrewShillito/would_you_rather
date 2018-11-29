@@ -24,7 +24,7 @@ class Nav extends Component {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/new" activeClassName="active" onClick={this.handleClick}>
+                    <NavLink to="/questions/new" activeClassName="active" onClick={this.handleClick}>
                         New Question
                     </NavLink>
                 </li>

@@ -4,7 +4,7 @@ import Avatar from "./Avatar";
 
 class QuestionPreview extends Component {
     render() {
-        console.log("Preview Props: ", this.props);
+        // console.log("Preview Props: ", this.props);
         
         return (
             <div>

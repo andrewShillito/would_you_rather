@@ -24,6 +24,7 @@ export default function users(store = {}, action) {
             // need to update author user's questions
             const author = action.question.author;
             const id = action.question.id;
+            // console.log("author:", author, "\n", "Q-id:", id);
             return {
                 ...store,
                 [author]: {

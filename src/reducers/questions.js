@@ -23,25 +23,10 @@ export default function questions(store = {}, action) {
             // need to update questions
             return {
                 ...store,
-                [action.question.id]: action.question 
+                [action.question.id]: action.question,
                 //I think this is right, i think I don't need to spread it
             };
         default:
             return store;
     }
 }
-
-// Question structure
-//   return {
-//     id: generateUID(),
-//     timestamp: Date.now(),
-//     author,
-//     optionOne: {
-//       votes: [],
-//       text: optionOneText,
-//     },
-//     optionTwo: {
-//       votes: [],
-//       text: optionTwoText,
-//     }
-//   }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import handleCreateQuestion from "../actions/questions"
+import { handleCreateQuestion } from "../actions/questions";
 
 class New extends Component {
     state = {
@@ -11,8 +11,8 @@ class New extends Component {
         e.preventDefault();
         this.props.dispatch(handleCreateQuestion({
             author: this.props.authedUser,
-            optionOne: this.state.optionOne,
-            optionTwo: this.state.optionTwo,
+            optionOneText: this.state.optionOne,
+            optionTwoText: this.state.optionTwo,
         }));
         this.props.history.push("/"); //need to add router
     }
@@ -44,4 +44,4 @@ function mapStateToProps({ authedUser }) {
     };
 }
 
-export default connect()(New);
+export default connect(mapStateToProps)(New);

@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
@@ -9,6 +9,7 @@ import LeaderBoard from "./LeaderBoard";
 import Question from "./Question";
 import Answer from "./Answer";
 import QuestionList from "./QuestionList";
+import New from "./New"
 
 class App extends Component {
   componentDidMount() {
@@ -30,6 +31,7 @@ class App extends Component {
                 />
                 <Route path="/questions" exact component={QuestionList}/>
                 <Route path="/leaderboard" component={LeaderBoard} />
+                <Route path="/questions/new" component={New} />
                 <Route path="/questions/:qid" render={props => {
                   const qid = props.match.params.qid;
                   return ( this.props.questions[qid].optionOne.votes.includes(this.props.authedUser) ||
