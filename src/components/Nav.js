@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import { logout } from "../actions/authedUser"
+import { logout } from "../actions/authedUser";
 
 //todo: remove users route and allow users to be viewed by clicking on their user-card - implement in user-card component
 
@@ -45,8 +45,8 @@ class Nav extends Component {
                     </li>
                 }
                 <li>
-                    <NavLink to={`/users/${this.props.authedUser}`} activeClassName="active" onClick={this.handleClick}>
-                        User
+                    <NavLink to={`/questions`} activeClassName="active" onClick={this.handleClick}>
+                        Questions
                     </NavLink>
                 </li>
                 </ul>

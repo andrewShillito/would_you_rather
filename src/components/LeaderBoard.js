@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Leader from "./Leader";
+import UserCard from "./UserCard";
+import Avatar from "./Avatar";
 
 class LeaderBoard extends Component {
     render() {
@@ -8,7 +10,10 @@ class LeaderBoard extends Component {
         return (
             <div className="leader-board">
                 {leaders.map((leader) => (
-                    <Leader id={leader.id} key={leader.id}/>
+                    <UserCard key={leader.id} >
+                        <Avatar user={leader.id} />
+                        <Leader id={leader.id} />
+                    </UserCard>
                 ))}
             </div>
         );

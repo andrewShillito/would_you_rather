@@ -51,7 +51,7 @@ class App extends Component {
                   return (
                     <UserCard>
                       <Avatar user={props.match.params.id} />
-                      <Leader id={props.match.params.id} key={props.match.params.id} />
+                      <Leader id={props.match.params.id} />
                     </UserCard>
                   );
                 }} />

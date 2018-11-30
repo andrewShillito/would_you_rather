@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Avatar from "./Avatar";
+import Score from "./Score";
 
 class Leader extends Component {
     render() {
@@ -13,14 +14,9 @@ class Leader extends Component {
                     <p>Answered Questions <span>{Object.keys(answers).length}</span></p>
                     <p>Created Questions <span>{questions.length}</span></p>
                 </div>
-                <div>
-                    <div>
-                        <h3>Score</h3>
-                    </div>
-                    <div>
-                        <div>{Object.keys(answers).length + questions.length}</div>
-                    </div>
-                </div>
+                <Score 
+                    score={Object.keys(answers).length + questions.length}
+                />
             </div>
         );
     }
