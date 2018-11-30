@@ -42,11 +42,11 @@ class App extends Component {
                   ? <Answer qid={qid} />
                   : <Question qid={qid}/>;
                 }} />
-                <Route path="users/:id" render={props => {
-                  const id = props.match.params.id;
+                <Route path="/users/:id" render={props => {
+                  console.log("Route props: ", props.match.params.id);
                   return (
                     <UserCard>
-                      <Leader id={id} />
+                      <Leader id={props.match.params.id} key={props.match.params.id} />
                     </UserCard>
                   );
                 }} />

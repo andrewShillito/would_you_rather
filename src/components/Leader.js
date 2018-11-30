@@ -4,7 +4,7 @@ import Avatar from "./Avatar";
 
 class Leader extends Component {
     render() {
-        
+        console.log("Leader props:", this.props);
         const { name, answers, questions, id } = this.props.user;
         return (
             <div>
