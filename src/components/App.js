@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
 import Login from "./Login";
@@ -13,6 +13,7 @@ import New from "./New";
 
 import UserCard from "./UserCard";
 import Leader from "./Leader";
+import Avatar from "./Avatar";
 
 class App extends Component {
   componentDidMount() {
@@ -28,7 +29,10 @@ class App extends Component {
           ? <div>
               <Switch>
                 <Route path="/" exact render={props => (
-                  <Redirect to="/questions" />
+                  <UserCard>
+                    <Avatar user={this.props.authedUser} />
+                    <Leader id={this.props.authedUser} />
+                  </UserCard>
                 )}
                   
                 />
@@ -46,6 +50,7 @@ class App extends Component {
                   console.log("Route props: ", props.match.params.id);
                   return (
                     <UserCard>
+                      <Avatar user={props.match.params.id} />
                       <Leader id={props.match.params.id} key={props.match.params.id} />
                     </UserCard>
                   );
