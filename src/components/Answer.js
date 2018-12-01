@@ -5,40 +5,29 @@ import VoteReport from "./VoteReport";
 
 class Answer extends Component {
     render() {
-        
+
         const { question, answer } = this.props;
-        
+
         const optionOneVotes = question.optionOne.votes.length;
         const optionTwoVotes = question.optionTwo.votes.length;
         const totalNumVotes = optionOneVotes + optionTwoVotes;
-        
+
         return (
-            <div>
-                <div>
-                    <h3>{`Asked by ${question.author}`}</h3>
-                </div>
-                <div>
-                    <Avatar user={question.author}/>
-                </div>
-                <div>
-                    <h1>Results:</h1>
-                    
-                    <VoteReport 
-                        selected={answer === "optionOne"}
-                        text={`Would you rather ${question.optionOne.text}?`}
-                        numVotes={optionOneVotes}
-                        totalVotes={totalNumVotes}
-                    />
-                    
-                    <VoteReport 
-                        selected={answer === "optionTwo"}
-                        text={`Would you rather ${question.optionTwo.text}?`}
-                        numVotes={optionTwoVotes}
-                        totalVotes={totalNumVotes}
-                    />
-                    
-                </div>
-            </div>
+          <div>
+              <h1>Results:</h1>
+              <VoteReport
+                  selected={answer === "optionOne"}
+                  text={`Would you rather ${question.optionOne.text}?`}
+                  numVotes={optionOneVotes}
+                  totalVotes={totalNumVotes}
+              />
+              <VoteReport
+                  selected={answer === "optionTwo"}
+                  text={`Would you rather ${question.optionTwo.text}?`}
+                  numVotes={optionTwoVotes}
+                  totalVotes={totalNumVotes}
+              />
+          </div>
         );
     }
 }

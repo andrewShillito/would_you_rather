@@ -14,6 +14,7 @@ import New from "./New";
 import UserCard from "./UserCard";
 import Leader from "./Leader";
 import Avatar from "./Avatar";
+import Title from "./Title";
 
 class App extends Component {
   componentDidMount() {
@@ -21,11 +22,11 @@ class App extends Component {
   }
   render() {
     return (
-      
+
       <Router>
         <div>
           <Nav loggedIn={this.props.authedUser !== null} authedUser={this.props.authedUser}/>
-          { this.props.authedUser !== null 
+          { this.props.authedUser !== null
           ? <div>
               <Switch>
                 <Route path="/" exact render={props => (
@@ -34,7 +35,7 @@ class App extends Component {
                     <Leader id={this.props.authedUser} />
                   </UserCard>
                 )}
-                  
+
                 />
                 <Route path="/questions" exact component={QuestionList}/>
                 <Route path="/leaderboard" component={LeaderBoard} />
@@ -42,9 +43,18 @@ class App extends Component {
                 <Route path="/questions/:qid" render={props => {
                   const qid = props.match.params.qid;
                   return ( this.props.questions[qid].optionOne.votes.includes(this.props.authedUser) ||
-                  this.props.questions[qid].optionTwo.votes.includes(this.props.authedUser) ) 
-                  ? <Answer qid={qid} />
-                  : <Question qid={qid}/>;
+                  this.props.questions[qid].optionTwo.votes.includes(this.props.authedUser) )
+                  ? <UserCard>
+                      <Title title={`Asked by ${this.props.users[this.props.questions[qid].author].name}`}/>
+                      <Avatar user={this.props.questions[qid].author} />
+                      <Answer qid={qid} />
+                    </UserCard>
+
+                  : <UserCard>
+                      <Title title={`${this.props.users[this.props.questions[qid].author].name} asks:`}/>
+                      <Avatar user={this.props.questions[qid].author}/>
+                      <Question qid={qid}/>
+                    </UserCard>;
                 }} />
                 <Route path="/users/:id" render={props => {
                   console.log("Route props: ", props.match.params.id);
@@ -70,6 +80,7 @@ function mapStateToProps({ authedUser, users, questions }) {
     authedUser,
     name: authedUser !== null ? users[authedUser].name : null,
     questions,
+    users,
     // todo: implement loading functionality
   };
 }

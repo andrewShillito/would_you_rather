@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Avatar from "./Avatar";
 import { handleAnswerQuestion } from "../actions/questions";
+import Title from "./Title";
 
 class Question extends Component {
     state = {
@@ -25,32 +26,24 @@ class Question extends Component {
     render() {
         const { authorName, question } = this.props;
         const { author } = question;
-        
+
         return (
-            <div>
-                <div>
-                    <h3>{`${authorName} asks:`}</h3>
-                </div>
-                <div>
-                    <Avatar user={author}/>
-                </div>
-                <div>
-                    <h1>Would You Rather ...</h1>
-                    <div>
-                        <form id="question-form" onSubmit={this.handleSubmit}>
-                            <input type="radio" name="answer" id="optionOne" value="optionOne"
-                                onChange={this.handleChange} checked={this.state.selected === "optionOne"}
-                            ></input>
-                            <label htmlFor="optionOne">{question.optionOne.text}</label>
-                            <input type="radio" name="answer" id="optionTwo" value="optionTwo"
-                                onChange={this.handleChange} checked={this.state.selected === "optionTwo"}
-                            ></input>
-                            <label htmlFor="optionTwo">{question.optionTwo.text}</label>
-                        </form>
-                        <button type="submit" form="question-form">Submit</button>
-                    </div>
-                </div>
-            </div>
+          <div className="question">
+              <h1 className="question-title">Would You Rather ...</h1>
+              <div className="question-form-container">
+                  <form id="question-form" onSubmit={this.handleSubmit}>
+                      <input type="radio" name="answer" id="optionOne" value="optionOne"
+                          onChange={this.handleChange} checked={this.state.selected === "optionOne"}
+                      ></input>
+                      <label htmlFor="optionOne">{question.optionOne.text}</label>
+                      <input type="radio" name="answer" id="optionTwo" value="optionTwo"
+                          onChange={this.handleChange} checked={this.state.selected === "optionTwo"}
+                      ></input>
+                      <label htmlFor="optionTwo">{question.optionTwo.text}</label>
+                  </form>
+                  <button type="submit" form="question-form">Submit</button>
+              </div>
+          </div>
         );
     }
 }
