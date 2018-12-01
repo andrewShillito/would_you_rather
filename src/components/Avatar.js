@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 
 class Avatar extends Component {
     render() {
+        console.log("Avatar Props:", this.props)
         return (
             <div className="avatar">
                 <img src={this.props.avatarURL} alt="avatar" />
@@ -15,7 +16,7 @@ class Avatar extends Component {
 
 function mapStateToProps({ users }, {user}) {
     return {
-        avatarURL: user !== null ? users[user].avatarURL : "" 
+        avatarURL: user !== null ? users[user].avatarURL : "",
     };
 }
 

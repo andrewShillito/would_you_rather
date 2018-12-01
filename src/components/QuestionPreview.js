@@ -4,7 +4,7 @@ import Avatar from "./Avatar";
 
 export default function QuestionPreview(props) {
     return (
-        <div>
+        <div className="question-preview">
             <div>
                 {`${props.text.substring(0, 14)}...`}
             </div>

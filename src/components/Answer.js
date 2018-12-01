@@ -13,7 +13,7 @@ class Answer extends Component {
         const totalNumVotes = optionOneVotes + optionTwoVotes;
 
         return (
-          <div>
+          <div className="answer">
               <h1>Results:</h1>
               <VoteReport
                   selected={answer === "optionOne"}

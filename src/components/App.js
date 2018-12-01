@@ -24,7 +24,7 @@ class App extends Component {
     return (
 
       <Router>
-        <div>
+        <div className="app">
           <Nav loggedIn={this.props.authedUser !== null} authedUser={this.props.authedUser}/>
           { this.props.authedUser !== null
           ? <div>
@@ -52,7 +52,7 @@ class App extends Component {
 
                   : <UserCard>
                       <Title title={`${this.props.users[this.props.questions[qid].author].name} asks:`}/>
-                      <Avatar user={this.props.questions[qid].author}/>
+                      <Avatar user={this.props.questions[qid].author} />
                       <Question qid={qid}/>
                     </UserCard>;
                 }} />
