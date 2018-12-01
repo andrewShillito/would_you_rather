@@ -12,3 +12,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.user-card {
+}
+
+.leader {
+  display: inline-block;
+}
+
+.avatar {
+  display: inline-block;
+}
+
+.score {
+  display: inline-block;
+}

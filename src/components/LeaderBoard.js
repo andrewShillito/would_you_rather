@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import Leader from "./Leader";
 import UserCard from "./UserCard";
 import Avatar from "./Avatar";
+import Title from "./Title";
+import Score from "./Score";
 
 class LeaderBoard extends Component {
     render() {
@@ -11,8 +13,11 @@ class LeaderBoard extends Component {
             <div className="leader-board">
                 {leaders.map((leader) => (
                     <UserCard key={leader.id} >
+                        <Title title={this.props.users[leader.id].name} />
                         <Avatar user={leader.id} />
                         <Leader id={leader.id} />
+                        <Score score={Object.keys(this.props.users[leader.id].answers).length + this.props.users[leader.id].questions.length
+                        }/>
                     </UserCard>
                 ))}
             </div>
@@ -28,9 +33,10 @@ function mapStateToProps({ users }) {
             (Object.keys(users[b].answers).length + users[b].questions.length) //total score of user b
           - (Object.keys(users[a].answers).length + users[a].questions.length) //total score of user a
         );
-    }).slice(0, 10).map((id) => users[id]); 
+    }).slice(0, 10).map((id) => users[id]);
     return {
         leaders,
+        users,
     };
 }
 

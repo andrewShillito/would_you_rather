@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 
 export default function Score(props) {
+    console.log(props);
     return (
-        <div className="score-container">
-            <div className="score-title">
-                <h3>Score</h3>
-            </div>
-            <div className="score">
-                <div>{props.score}</div>
-            </div>
-        </div>
+          <div className="score">
+              <h3 className="score-title">Score</h3>
+              <div className="score-display">
+                {props.score}
+              </div>
+          </div>
     )
 }

@@ -8,16 +8,10 @@ class Leader extends Component {
         console.log("Leader props:", this.props);
         const { name, answers, questions, id } = this.props.user;
         return (
-            <div>
-                <div>
-                    <h1>{name}</h1>
-                    <p>Answered Questions <span>{Object.keys(answers).length}</span></p>
-                    <p>Created Questions <span>{questions.length}</span></p>
-                </div>
-                <Score 
-                    score={Object.keys(answers).length + questions.length}
-                />
-            </div>
+          <div className="leader">
+              <p>Answered Questions <span>{Object.keys(answers).length}</span></p>
+              <p>Created Questions <span>{questions.length}</span></p>
+          </div>
         );
     }
 }
