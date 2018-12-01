@@ -13,17 +13,42 @@ code {
     monospace;
 }
 
+/* UserCard styles */
+
 .user-card {
 }
+
+/* Leader Styles */
 
 .leader {
   display: inline-block;
 }
 
+/* Avatar Styles */
+
 .avatar {
   display: inline-block;
 }
 
+/* Score Styles */
+
 .score {
   display: inline-block;
+}
+
+/* Nav Styles */
+
+.nav ul {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-item {
+  display: inline-block;
+}
+
+.nav-avatar {
+  
 }

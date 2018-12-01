@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../actions/authedUser";
-import NavAvatar from "./NavAvatar";
 
 //todo: remove users route and allow users to be viewed by clicking on their user-card - implement in user-card component
+//todo: fix NavAvatar component img render
 
 class Nav extends Component {
     handleClick = (e) => {
@@ -24,7 +24,8 @@ class Nav extends Component {
                     {this.props.loggedIn
                       ? <li className="nav-item">
                           <NavLink to="/" exact activeClassName="active" onClick={this.handleClick}>
-                            <NavAvatar />
+                            {`Hello, ${this.props.username}`}
+                            <img src={this.props.avatarURL} alt="avatar"/>
                           </NavLink>
                         </li>
                       : null
@@ -43,13 +44,13 @@ class Nav extends Component {
                         ? null
                         :
                         <li>
-                            <NavLink to="/" activeClassName="active" onClick={this.handleLogout}>
+                            <NavLink to="/" className="nav-item" activeClassName="active" onClick={this.handleLogout}>
                                 Logout
                             </NavLink>
                         </li>
                     }
                     <li>
-                        <NavLink to={`/questions`} activeClassName="active" onClick={this.handleClick}>
+                        <NavLink to={`/questions`} className="nav-item" activeClassName="active" onClick={this.handleClick}>
                             Questions
                         </NavLink>
                     </li>
@@ -59,4 +60,11 @@ class Nav extends Component {
     }
 }
 
-export default connect()(Nav);
+function mapStateToProps({ authedUser, users }){
+  return {
+    username: users[authedUser] !== undefined ? users[authedUser].name : "undefined",
+    avatarUrl: authedUser !== null ? users[authedUser].avatarURL : "null",
+  }
+}
+
+export default connect(mapStateToProps)(Nav);
