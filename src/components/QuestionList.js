@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import QuestionPreview from "./QuestionPreview";
+import UserCard from "./UserCard";
+import Title from "./Title";
+import Avatar from "./Avatar";
 
 class QuestionList extends Component {
     state = {
@@ -18,27 +21,28 @@ class QuestionList extends Component {
             ? <div>
                 {answered.map((question) => {
                     return (
-                        <QuestionPreview 
-                            author={question.author}
-                            name={users[question.author].name}
-                            text={question.optionOne.text}
-                            id={question.id}
-                            key={question.id}
-                        />
+                        <UserCard key={question.id}>
+                          <Title title={`Asked by: ${users[question.author].name}`} />
+                          <Avatar user={question.author} />
+                          <QuestionPreview
+                              text={question.optionOne.text}
+                              id={question.id}
+                          />
+                        </UserCard>
                     );
                 })}
                 </div>
             : <div>
                 {unanswered.map((question) => {
                     return (
-                        <QuestionPreview 
-                            author={question.author}
-                            name={users[question.author].name}
-                            avatarURL={users[question.author].avatarURL}
+                      <UserCard key={question.id}>
+                        <Title title={`Asked by: ${users[question.author].name}`} />
+                        <Avatar user={question.author} />
+                        <QuestionPreview
                             text={question.optionOne.text}
                             id={question.id}
-                            key={question.id}
                         />
+                      </UserCard>
                     );
                 })}
             </div>;
@@ -55,12 +59,12 @@ class QuestionList extends Component {
 }
 
 function mapStateToProps({ questions, users, authedUser }) {
-    
+
     const user = users[authedUser];
     const answered = Object.keys(user.answers).map((qid) => questions[qid]);
     const unanswered = Object.keys(questions).filter((question) => !(question in user.answers))
             .map((qid) => questions[qid]);
-    
+
     return {
         answered,
         unanswered,
