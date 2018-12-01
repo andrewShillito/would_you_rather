@@ -5,7 +5,6 @@ import Score from "./Score";
 
 class Leader extends Component {
     render() {
-        console.log("Leader props:", this.props);
         const { name, answers, questions, id } = this.props.user;
         return (
           <div className="leader">

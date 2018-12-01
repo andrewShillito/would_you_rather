@@ -31,6 +31,7 @@ class App extends Component {
               <Switch>
                 <Route path="/" exact render={props => (
                   <UserCard>
+                    <Title title={this.props.users[this.props.authedUser].name}/>
                     <Avatar user={this.props.authedUser} />
                     <Leader id={this.props.authedUser} />
                   </UserCard>
@@ -57,7 +58,6 @@ class App extends Component {
                     </UserCard>;
                 }} />
                 <Route path="/users/:id" render={props => {
-                  console.log("Route props: ", props.match.params.id);
                   return (
                     <UserCard>
                       <Avatar user={props.match.params.id} />
