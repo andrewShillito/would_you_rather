@@ -13,21 +13,43 @@ code {
     monospace;
 }
 
+/* App Styles */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* UserCard styles */
 
 .user-card {
+  height: 200px;
+  width: 500px;
+}
+
+.user-card-title {
+
 }
 
 /* Leader Styles */
 
 .leader {
   display: inline-block;
+  height: 100%;
 }
 
 /* Avatar Styles */
 
 .avatar {
   display: inline-block;
+  width: 128px;
+  height: 128px;
+}
+
+.avatar img {
+  border-radius: 50%;
 }
 
 /* Score Styles */
@@ -50,5 +72,5 @@ code {
 }
 
 .nav-avatar {
-  
+
 }

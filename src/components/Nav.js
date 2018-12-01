@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { logout } from "../actions/authedUser";
 
 //todo: remove users route and allow users to be viewed by clicking on their user-card - implement in user-card component
-//todo: fix NavAvatar component img render
+//todo: fix avatar rendering in nav
 
 class Nav extends Component {
     handleClick = (e) => {
@@ -18,6 +18,7 @@ class Nav extends Component {
         this.props.dispatch(logout());
     }
     render() {
+        console.log("Nav Props:", this.props)
         return (
             <nav className="nav">
                 <ul>
@@ -25,7 +26,7 @@ class Nav extends Component {
                       ? <li className="nav-item">
                           <NavLink to="/" exact activeClassName="active" onClick={this.handleClick}>
                             {`Hello, ${this.props.username}`}
-                            <img src={this.props.avatarURL} alt="avatar"/>
+                            <img className="nav-avatar" src={this.props.avatarURL} alt="avatar"/>
                           </NavLink>
                         </li>
                       : null
@@ -40,6 +41,11 @@ class Nav extends Component {
                             LeaderBoard
                         </NavLink>
                     </li>
+                    <li>
+                        <NavLink to={`/questions`} className="nav-item" activeClassName="active" onClick={this.handleClick}>
+                            Questions
+                        </NavLink>
+                    </li>
                     {!this.props.loggedIn
                         ? null
                         :
@@ -49,11 +55,6 @@ class Nav extends Component {
                             </NavLink>
                         </li>
                     }
-                    <li>
-                        <NavLink to={`/questions`} className="nav-item" activeClassName="active" onClick={this.handleClick}>
-                            Questions
-                        </NavLink>
-                    </li>
                 </ul>
             </nav>
         );
@@ -61,6 +62,7 @@ class Nav extends Component {
 }
 
 function mapStateToProps({ authedUser, users }){
+  console.log("Nav prop map:", users[authedUser] ? users[authedUser].avatarURL : users[authedUser])
   return {
     username: users[authedUser] !== undefined ? users[authedUser].name : "undefined",
     avatarUrl: authedUser !== null ? users[authedUser].avatarURL : "null",

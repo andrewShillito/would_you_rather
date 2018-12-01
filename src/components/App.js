@@ -27,7 +27,7 @@ class App extends Component {
         <div className="app">
           <Nav loggedIn={this.props.authedUser !== null} authedUser={this.props.authedUser}/>
           { this.props.authedUser !== null
-          ? <div>
+          ? <div className="content">
               <Switch>
                 <Route path="/" exact render={props => (
                   <UserCard>
