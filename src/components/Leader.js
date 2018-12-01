@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Avatar from "./Avatar";
-import Score from "./Score";
 
 class Leader extends Component {
     render() {
-        const { name, answers, questions, id } = this.props.user;
+        const { answers, questions } = this.props.user;
         return (
           <div className="leader">
               <p>Answered Questions <span>{Object.keys(answers).length}</span></p>

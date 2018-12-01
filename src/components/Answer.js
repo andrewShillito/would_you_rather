@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Avatar from "./Avatar";
 import VoteReport from "./VoteReport";
 
 class Answer extends Component {

@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-// temp hard code
-
 class Avatar extends Component {
     render() {
-        console.log("Avatar Props:", this.props)
         return (
             <div className="avatar">
                 <img src={this.props.avatarURL} alt="avatar" />

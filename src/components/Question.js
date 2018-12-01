@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Avatar from "./Avatar";
 import { handleAnswerQuestion } from "../actions/questions";
-import Title from "./Title";
 
 class Question extends Component {
     state = {
@@ -24,8 +22,7 @@ class Question extends Component {
         }));
     }
     render() {
-        const { authorName, question } = this.props;
-        const { author } = question;
+        const { question } = this.props;
 
         return (
           <div className="question">
@@ -52,7 +49,6 @@ function mapStateToProps({ questions, authedUser, users }, { qid }) {
     return {
         question: questions[qid],
         authedUser,
-        authorName: users[questions[qid].author].name,
     };
 }
 
