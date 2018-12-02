@@ -18,7 +18,7 @@ class Nav extends Component {
         this.props.dispatch(logout());
     }
     render() {
-        console.log("Nav Props:", this.props)
+        // console.log("Nav Props:", this.props)
         return (
             <nav className="nav">
                 <ul>
@@ -62,7 +62,7 @@ class Nav extends Component {
 }
 
 function mapStateToProps({ authedUser, users }){
-  console.log("Nav prop map:", users[authedUser] ? users[authedUser].avatarURL : users[authedUser])
+  // console.log("Nav prop map:", users[authedUser] ? users[authedUser].avatarURL : users[authedUser])
   return {
     username: users[authedUser] !== undefined ? users[authedUser].name : "undefined",
     avatarUrl: authedUser !== null ? users[authedUser].avatarURL : "null",
