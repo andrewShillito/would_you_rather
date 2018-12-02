@@ -32,7 +32,7 @@ class New extends Component {
                     <input type="text" name="optionOne" placeholder="Option One" onChange={this.handleChange} />
                     <input type="text" name="optionTwo" placeholder="Option Two" onChange={this.handleChange} />
                 </form>
-                <button type="submit" form="new-form">Submit</button>
+                <button type="submit" form="new-form" disabled={!(this.state.optionOne !== '' && this.state.optionTwo !== "")}>Submit</button>
             </div>
         )
     }

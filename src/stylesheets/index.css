@@ -34,8 +34,8 @@ code {
   align-items: center;
   flex-wrap: wrap; /* keeps title on own line */
   box-shadow: 1px 1px 1px 1px #555;
-  padding: .5em;
-  margin: .5em;
+  padding: 0 5em .5em .5em;
+  margin: 1em;
 }
 
 .user-card-title {
@@ -110,4 +110,31 @@ code {
 
 .nav-avatar {
 
+}
+
+/* New Styles */
+.new {
+  box-shadow: 1px 1px 1px 1px #555;
+  padding: 0 2em 2em 2em;
+  margin: .5em;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#new-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#new-form input {
+  font-size: 1.5em;
+  padding: .5em 1em 0 0;
+  margin: 0 0 1em 0;
+}
+
+.new button {
+  font-size: 1.5em;
+  margin: 0;
 }
