@@ -32,8 +32,7 @@ class App extends Component {
               <Switch>
                 <Route path="/" exact render={props => (
                   <QuestionList />
-                )}
-
+                  )}
                 />
                 <Route path="/leaderboard" component={LeaderBoard} />
                 <Route path="/questions/new" component={New} />
