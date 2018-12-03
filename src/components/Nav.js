@@ -41,11 +41,6 @@ class Nav extends Component {
                             LeaderBoard
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink to={`/questions`} className="nav-item" activeClassName="active" onClick={this.handleClick}>
-                            Questions
-                        </NavLink>
-                    </li>
                     {!this.props.loggedIn
                         ? null
                         :

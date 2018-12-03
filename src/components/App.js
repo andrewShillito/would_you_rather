@@ -31,16 +31,10 @@ class App extends Component {
           ? <div className="content">
               <Switch>
                 <Route path="/" exact render={props => (
-                  <UserCard>
-                    <Title title={this.props.users[this.props.authedUser].name}/>
-                    <Avatar user={this.props.authedUser} />
-                    <Leader id={this.props.authedUser} />
-                    <Score score={Object.keys(this.props.users[this.props.authedUser].answers).length + this.props.users[this.props.authedUser].questions.length} />
-                  </UserCard>
+                  <QuestionList />
                 )}
 
                 />
-                <Route path="/questions" exact component={QuestionList}/>
                 <Route path="/leaderboard" component={LeaderBoard} />
                 <Route path="/questions/new" component={New} />
                 <Route path="/questions/:qid" render={props => {
