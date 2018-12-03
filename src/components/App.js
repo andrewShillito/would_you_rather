@@ -30,10 +30,7 @@ class App extends Component {
           { this.props.authedUser !== null
           ? <div className="content">
               <Switch>
-                <Route path="/" exact render={props => (
-                  <QuestionList />
-                  )}
-                />
+                <Route path="/" exact component={QuestionList} />
                 <Route path="/leaderboard" component={LeaderBoard} />
                 <Route path="/questions/new" component={New} />
                 <Route path="/questions/:qid" render={props => {

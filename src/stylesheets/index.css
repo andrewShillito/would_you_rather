@@ -32,6 +32,7 @@ button {
   font-size: 20px;
   background-color: #208c39;
   color: white;
+  padding: .4em 0 .4em 0;
 }
 
 button:hover {
@@ -202,5 +203,4 @@ button:disabled {
   font-size: 20px;
   width: 400px;
   margin: 1em 0 1em 0;
-  padding: .4em 0 .4em 0;
 }

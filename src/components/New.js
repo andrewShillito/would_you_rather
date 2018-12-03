@@ -14,7 +14,7 @@ class New extends Component {
             optionOneText: this.state.optionOne,
             optionTwoText: this.state.optionTwo,
         }));
-        this.props.history.push("/questions"); //need to add router
+        this.props.history.push("/");
     }
     handleChange = (e) => {
         const value = e.target.value;
