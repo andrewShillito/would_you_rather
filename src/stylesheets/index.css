@@ -182,6 +182,10 @@ button:disabled {
   text-decoration: none;
 }
 
+.nav-active {
+  background-color: white;
+}
+
 .welcome-msg {
   float: right;
   height: 100%;

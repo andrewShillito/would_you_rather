@@ -24,12 +24,12 @@ class Nav extends Component {
                 <div className="nav-menu">
                     <ul>
                         <li className="nav-item">
-                            <NavLink to="/questions/new" activeClassName="nav-active" onClick={this.handleClick}>
+                            <NavLink to="/questions/new" onClick={this.handleClick}>
                                 New Question
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to="/leaderboard" activeClassName="nav-active" onClick={this.handleClick}>
+                            <NavLink to="/leaderboard" onClick={this.handleClick}>
                                 LeaderBoard
                             </NavLink>
                         </li>
@@ -37,14 +37,14 @@ class Nav extends Component {
                             ? null
                             :
                             <li className="nav-item">
-                                <NavLink to="/" activeClassName="nav-active" onClick={this.handleLogout}>
+                                <NavLink to="/" onClick={this.handleLogout}>
                                     Logout
                                 </NavLink>
                             </li>
                         }
                         {this.props.loggedIn
                             ? <li className="welcome-msg">
-                                <NavLink to="/" exact activeClassName="nav-active" onClick={this.handleClick}>
+                                <NavLink to="/" onClick={this.handleClick}>
                                     {`Hello, ${this.props.username}`}
                                     <img src={this.props.avatarURL} alt="avatar" className="nav-avatar" />
                                 </NavLink>
