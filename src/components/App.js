@@ -15,6 +15,7 @@ import UserCard from "./UserCard";
 import Leader from "./Leader";
 import Avatar from "./Avatar";
 import Title from "./Title";
+import Score from "./Score";
 
 class App extends Component {
   componentDidMount() {
@@ -34,6 +35,7 @@ class App extends Component {
                     <Title title={this.props.users[this.props.authedUser].name}/>
                     <Avatar user={this.props.authedUser} />
                     <Leader id={this.props.authedUser} />
+                    <Score score={Object.keys(this.props.users[this.props.authedUser].answers).length + this.props.users[this.props.authedUser].questions.length} />
                   </UserCard>
                 )}
 

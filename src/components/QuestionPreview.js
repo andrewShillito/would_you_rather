@@ -8,7 +8,7 @@ export default function QuestionPreview(props) {
                 {`${props.text.substring(0, 14)}...`}
             </div>
             <Link to={`/questions/${props.id}`} className="question-preview-btn">
-                Question
+                View
             </Link>
         </div>
     );
