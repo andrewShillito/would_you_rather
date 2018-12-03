@@ -69,7 +69,7 @@ class App extends Component {
                 }} />
               </Switch>
             </div>
-          : <Route path="/" component={Login} />
+          : <Login />
         }
         </div>
     </Router>

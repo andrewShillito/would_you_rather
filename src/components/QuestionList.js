@@ -7,7 +7,7 @@ import Avatar from "./Avatar";
 
 class QuestionList extends Component {
     state = {
-        selected: 'answered',
+        selected: 'unanswered',
     }
     handleClick = (e) => {
         const value = e.target.value;
@@ -20,8 +20,8 @@ class QuestionList extends Component {
         return (
             <div className="question-list">
                 <div className="question-list-nav">
-                    <button value="answered" disabled={this.state.selected==="answered"} onClick={this.handleClick}>Answered</button>
                     <button value="unanswered" disabled={this.state.selected!=="answered"} onClick={this.handleClick}>Unanswered</button>
+                    <button value="answered" disabled={this.state.selected==="answered"} onClick={this.handleClick}>Answered</button>
                 </div>
                 {this.state.selected === "answered"
                     ? <div className="question-list-cards">
