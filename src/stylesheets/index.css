@@ -56,7 +56,7 @@ button:disabled {
   -moz-box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
   box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
   padding: 0;
-  margin: 1em;
+  margin: 0 1em 1em 1em;
   background-color: white;
 }
 
@@ -69,6 +69,31 @@ button:disabled {
 }
 
 /* Question Styles */
+
+.question-list-nav {
+  width: 100%;
+  padding: 0 1em;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.question-list-nav button {
+  width: 50%;
+  margin-bottom: 0;
+  background-color: #dddddd;
+  border: none;
+}
+
+.question-list-nav button:disabled {
+  background-color: #555555;
+}
+
+.question-list-cards {
+  margin-top: 0;
+  padding-top: 0;
+}
+
 .question-preview {
   align-self: flex-start;
   display: flex;
@@ -181,6 +206,7 @@ button:disabled {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .login-form-container {
@@ -189,18 +215,25 @@ button:disabled {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 1em;
   -webkit-box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
   -moz-box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
   box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
 }
 
+#login-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 #login-form select {
-  width: 400px;
+  width: 100%;
   font-size: 20px;
 }
 
 .login-form-container button {
   font-size: 20px;
-  width: 400px;
+  width: 100%;
   margin: 1em 0 1em 0;
 }
