@@ -9,8 +9,6 @@ class Login extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.dispatch(login(this.state.value));
-        // this.props.history.push("/questions"); //this redirects to home page when form is submitted
-        // have removed in favor of just keeping the page on same route after submission
     }
     handleChange = (e) => {
         const value = e.target.value;
@@ -22,9 +20,11 @@ class Login extends Component {
         // todo: change to use a select box built of divs/a tags so can have user avatars included
         return (
 
-            <div>
+            <div className="login">
                 { this.props.users.length
-                    ? (<div>
+                    ? (<div className="login-form-container">
+                        <h1>Please Login</h1>
+                        <h3>Select a User</h3>
                         <form onSubmit={this.handleSubmit} id="login-form">
                             <select value={this.state.value} onChange={this.handleChange}>
                                     <option key="userPrompt" disabled></option>

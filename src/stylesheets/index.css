@@ -28,6 +28,22 @@ code {
   align-items: center;
 }
 
+button {
+  font-size: 20px;
+  background-color: #208c39;
+  color: white;
+}
+
+button:hover {
+  background-color: #28a745;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #dddddd;
+  cursor: not-allowed;
+}
+
 /* UserCard styles */
 
 .user-card {
@@ -35,7 +51,9 @@ code {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap; /* keeps title on own line */
-  box-shadow: 1px 1px 1px 1px #555;
+  -webkit-box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
+  -moz-box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
+  box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
   padding: 0;
   margin: 1em;
   background-color: white;
@@ -70,17 +88,20 @@ code {
   border: none;
   border-radius: 10px;
   color: white;
-  background-color: #4CAF50;
+  background-color: #208c39;
   font-size: 18px;
 }
 
 .question-preview-btn:hover {
-  background-color: #26ad50;
+  background-color: #28a745;
+  cursor: pointer;
 }
 
-.question-preview-btn:active {
-  background-color: #2bc65c;
+.question-preview-btn:disabled {
+  background-color: #dddddd;
+  cursor: not-allowed;
 }
+
 /* Leader Styles */
 
 .leader {
@@ -126,8 +147,9 @@ code {
 
 /* New Styles */
 .new {
-  box-shadow: 1px 1px 1px 1px #555;
-  padding: 0 2em 2em 2em;
+  -webkit-box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
+  -moz-box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
+  box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);  padding: 0 2em 2em 2em;
   margin: .5em;
   width: 600px;
   display: flex;
@@ -150,4 +172,35 @@ code {
 .new button {
   font-size: 1.5em;
   margin: 0;
+}
+
+/* Login Styles */
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form-container {
+  width: 40%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  -webkit-box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
+  -moz-box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
+  box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
+}
+
+#login-form select {
+  width: 400px;
+  font-size: 20px;
+}
+
+.login-form-container button {
+  font-size: 20px;
+  width: 400px;
+  margin: 1em 0 1em 0;
+  padding: .4em 0 .4em 0;
 }
