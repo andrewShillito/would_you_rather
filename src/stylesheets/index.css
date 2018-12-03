@@ -26,6 +26,7 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 button {
@@ -156,19 +157,42 @@ button:disabled {
 
 /* Nav Styles */
 
-.nav ul {
+.nav {
   list-style: none;
   width: 100%;
-  display: flex;
-  justify-content: space-around;
+  height: 50px;
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.nav-menu {
+  width: 100%;
+  float: left;
+}
+
+.nav-menu ul {
+  list-style: none;
 }
 
 .nav-item {
   display: inline-block;
+  margin-right: 10%;
+  text-decoration: none;
 }
 
-.nav-avatar {
+.welcome-msg {
+  float: right;
+  height: 100%;
+}
 
+
+.nav-avatar {
+  max-height: 100%;
+  max-width: 100%;
+  border-radius: 50%;
+  margin-left: 20px;
 }
 
 /* New Styles */
