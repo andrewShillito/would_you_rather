@@ -46,8 +46,13 @@ class Nav extends Component {
                             ? <li className="welcome-msg">
                                 <NavLink to="/" onClick={this.handleClick}>
                                     {`Hello, ${this.props.username}`}
-                                    <img src={this.props.avatarURL} alt="avatar" className="nav-avatar" />
                                 </NavLink>
+                              </li>
+                            : null
+                        }
+                        {this.props.loggedIn 
+                            ? <li className="nav-avatar-container">
+                                <img src={this.props.avatarURL} alt="avatar" className="nav-avatar" />
                               </li>
                             : null
                         }
@@ -64,7 +69,7 @@ function mapStateToProps({ authedUser, users }){
   return {
     username: users[authedUser] !== undefined ? users[authedUser].name : "undefined",
     avatarURL: authedUser !== null ? users[authedUser].avatarURL : "null",
-  }
+  };
 }
 
 export default connect(mapStateToProps)(Nav);
