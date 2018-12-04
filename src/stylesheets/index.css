@@ -27,7 +27,10 @@ code {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-top: 1.5em;
 }
+
+/* Button Styles */
 
 button {
   font-size: 20px;
@@ -57,7 +60,7 @@ button:disabled {
   -moz-box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
   box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
   padding: 0;
-  margin: 0 1em 1em 1em;
+  margin: 0 0 1em 0;
   background-color: white;
 }
 
@@ -73,7 +76,6 @@ button:disabled {
 
 .question-list-nav {
   width: 100%;
-  padding: 0 1em;
   margin-bottom: 0;
   display: flex;
   justify-content: space-between;
@@ -240,6 +242,7 @@ button:disabled {
   flex-direction: column;
   align-items: center;
   padding: 0 1em;
+  margin-top: 1.5em;
   -webkit-box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
   -moz-box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
   box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
