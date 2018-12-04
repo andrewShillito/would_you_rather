@@ -158,52 +158,41 @@ button:disabled {
 /* Nav Styles */
 
 .nav {
-  list-style: none;
-  width: 100%;
-  height: 50px;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #555555;
+  color: white;
 }
 
-.nav a {
+.nav ul {
+  list-style: none;
+}
+
+.nav ul li a {
   text-decoration: none;
+  color: white;
 }
 
 .nav-menu {
-  width: 100%;
-  float: left;
-}
-
-.nav-menu ul {
-  list-style: none;
-  height: 50px;
-}
-
-.nav-item {
-  display: inline-block;
-  margin-right: 10%;
-  text-decoration: none;
-}
-
-.nav-active {
-  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 70%;
 }
 
 .nav-avatar-container {
-  float: right;
-  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
 }
 
 .nav-avatar {
-  max-height: 100%;
-  max-width: 100%;
+  max-height: 40%;
+  max-width: 40%;
   border-radius: 50%;
-}
-
-.welcome-msg {
-  float: right;
-  height: 100%;
-  display: inline-block;
-  margin-right: 5%;
-  text-decoration: none;
+  margin-left: 1em;
 }
 
 /* New Styles */

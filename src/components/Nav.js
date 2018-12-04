@@ -21,44 +21,41 @@ class Nav extends Component {
         console.log("Nav Props:", this.props);
         return (
             <nav className="nav">
-                <div className="nav-menu">
-                    <ul>
-                        <li className="nav-item">
-                            <NavLink to="/questions/new" onClick={this.handleClick}>
-                                New Question
+                <ul className="nav-menu">
+                    <li className="nav-item">
+                        <NavLink to="/questions/new" onClick={this.handleClick}>
+                            New Question
+                        </NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink to="/leaderboard" onClick={this.handleClick}>
+                            LeaderBoard
+                        </NavLink>
+                    </li>
+                    {this.props.loggedIn 
+                        ? <li className="nav-item">
+                            <NavLink to="/" onClick={this.handleLogout}>
+                                Logout
                             </NavLink>
                         </li>
-                        <li className="nav-item">
-                            <NavLink to="/leaderboard" onClick={this.handleClick}>
-                                LeaderBoard
+                        : null
+                    }
+                </ul>
+                {this.props.loggedIn
+                    ? <ul className="nav-avatar-container">
+                        <li className="nav-item welcome-msg">
+                            <NavLink to="/" onClick={this.handleClick}>
+                                {`Hello, ${this.props.username}`}
                             </NavLink>
                         </li>
-                        {!this.props.loggedIn
-                            ? null
-                            :
-                            <li className="nav-item">
-                                <NavLink to="/" onClick={this.handleLogout}>
-                                    Logout
-                                </NavLink>
-                            </li>
-                        }
-                        {this.props.loggedIn
-                            ? <li className="welcome-msg">
-                                <NavLink to="/" onClick={this.handleClick}>
-                                    {`Hello, ${this.props.username}`}
-                                </NavLink>
-                              </li>
-                            : null
-                        }
-                        {this.props.loggedIn 
-                            ? <li className="nav-avatar-container">
+                        <li>
+                            <NavLink to="/" onClick={this.handleClick}>
                                 <img src={this.props.avatarURL} alt="avatar" className="nav-avatar" />
-                              </li>
-                            : null
-                        }
+                            </NavLink>
+                        </li>
                     </ul>
-                </div>
-                
+                    : null
+                }
             </nav>
         );
     }
