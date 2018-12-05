@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handleCreateQuestion } from "../actions/questions";
-import Title from "./Title";
 import { withRouter } from "react-router-dom"
 
 class New extends Component {
