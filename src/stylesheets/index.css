@@ -46,7 +46,6 @@ button:hover {
 
 button:disabled {
   background-color: #dddddd;
-  cursor: not-allowed;
 }
 
 /* UserCard styles */
@@ -128,7 +127,6 @@ button:disabled {
 
 .question-preview-btn:disabled {
   background-color: #dddddd;
-  cursor: not-allowed;
 }
 
 /* Leader Styles */
@@ -197,17 +195,17 @@ button:disabled {
   margin-left: 1em;
 }
 
+#nav-active {
+  color: #66d6ff;
+}
+
 /* New Styles */
 .new {
-  -webkit-box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
-  -moz-box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);
-  box-shadow: 7px 7px 15px 0px rgba(85,85,85,0.8);  padding: 0 2em 2em 2em;
-  margin: .5em;
-  width: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: white;
+  width: 100%;
+  padding: 0 1em;
 }
 
 #new-form {
@@ -223,7 +221,7 @@ button:disabled {
 
 .new button {
   font-size: 1.5em;
-  margin: 0;
+  margin: 0 0 1em 0;
 }
 
 /* Login Styles */

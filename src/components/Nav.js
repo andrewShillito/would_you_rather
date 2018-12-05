@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logout } from "../actions/authedUser";
 
@@ -18,17 +18,19 @@ class Nav extends Component {
         this.props.dispatch(logout());
     }
     render() {
-        console.log("Nav Props:", this.props);
+        
+        const pathname = this.props.location.pathname;
+
         return (
             <nav className="nav">
                 <ul className="nav-menu">
                     <li className="nav-item">
-                        <NavLink to="/questions/new" onClick={this.handleClick}>
+                        <NavLink to="/questions/new" onClick={this.handleClick} id={pathname === "/questions/new" ? "nav-active" : ""}>
                             New Question
                         </NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to="/leaderboard" onClick={this.handleClick}>
+                        <NavLink to="/leaderboard" onClick={this.handleClick} id={pathname === "/leaderboard" ? "nav-active" : ""}>
                             LeaderBoard
                         </NavLink>
                     </li>
@@ -44,7 +46,7 @@ class Nav extends Component {
                 {this.props.loggedIn
                     ? <ul className="nav-avatar-container">
                         <li className="nav-item welcome-msg">
-                            <NavLink to="/" onClick={this.handleClick}>
+                            <NavLink to="/" onClick={this.handleClick} id={pathname === "/" ? "nav-active" : ""}>
                                 {`Hello, ${this.props.username}`}
                             </NavLink>
                         </li>
@@ -69,4 +71,4 @@ function mapStateToProps({ authedUser, users }){
   };
 }
 
-export default connect(mapStateToProps)(Nav);
+export default withRouter(connect(mapStateToProps)(Nav));

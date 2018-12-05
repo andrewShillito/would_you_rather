@@ -31,7 +31,14 @@ class App extends Component {
               <Switch>
                 <Route path="/" exact component={QuestionList} />
                 <Route path="/leaderboard" component={LeaderBoard} />
-                <Route path="/questions/new" component={New} />
+                <Route path="/questions/new" render={props => {
+                  return (
+                    <UserCard>
+                      <Title title="Complete the Questions" />
+                      <New />
+                    </UserCard>
+                  );
+                }} />
                 <Route path="/questions/:qid" render={props => {
                   const qid = props.match.params.qid;
                   return ( this.props.questions[qid].optionOne.votes.includes(this.props.authedUser) ||

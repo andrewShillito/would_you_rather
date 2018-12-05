@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handleCreateQuestion } from "../actions/questions";
+import Title from "./Title";
 
 class New extends Component {
     state = {
@@ -26,7 +27,6 @@ class New extends Component {
     render() {
         return (
             <div className="new">
-                <h3>Complete the questions</h3>
                 <h2>Would you rather...</h2>
                 <form id="new-form" onSubmit={this.handleSubmit}>
                     <input type="text" name="optionOne" placeholder="Option One" onChange={this.handleChange} />
