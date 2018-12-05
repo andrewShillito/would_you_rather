@@ -6,8 +6,8 @@ class Leader extends Component {
         const { answers, questions } = this.props.user;
         return (
           <div className="leader">
-              <p>Answered Questions <span>{Object.keys(answers).length}</span></p>
-              <p>Created Questions <span>{questions.length}</span></p>
+              <h3>Answered Questions <span>{Object.keys(answers).length}</span></h3>
+              <h3>Created Questions <span>{questions.length}</span></h3>
           </div>
         );
     }

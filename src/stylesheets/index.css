@@ -132,17 +132,31 @@ button:disabled {
 /* Leader Styles */
 
 .leader {
-  display: inline-block;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 160px;
+}
+
+.leader h3 {
+  width: 100%;
+  margin: .2em;
+}
+
+.leader h3 span {
+  color: #439ef9;
+  float: right;
+  margin-left: 1em;
 }
 
 /* Avatar Styles */
 
 .avatar {
   display: inline-block;
-  width: 128px;
   height: 128px;
-  margin: 1em;
+  margin: 1em 0 1em 1em;
+  cursor: pointer;
 }
 
 .avatar img {
@@ -152,9 +166,29 @@ button:disabled {
 /* Score Styles */
 
 .score {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 3.1em 1em 0 0;
+  height: 160px;
 }
 
+
+.score-title {
+  text-decoration: underline;
+  /*margin-bottom: 1em;*/
+
+}
+
+.score-display {
+  text-align: center;
+  color: #439ef9;
+}
+
+.score h3 {
+  margin: 0;
+}
 /* Nav Styles */
 
 .nav {
