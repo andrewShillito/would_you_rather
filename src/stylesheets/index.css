@@ -343,9 +343,6 @@ button:disabled {
   height: 40px;
   border: 2px solid #555555;
   border-right: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .progress-bar-inner {

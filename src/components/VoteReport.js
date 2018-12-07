@@ -15,6 +15,10 @@ class VoteReport extends Component {
         return (
             <div className={this.props.selected ? "vote-report selected" : "vote-report"}>
                 <h3>{this.props.text}
+                    {this.props.selected
+                        ? <i className="far fa-check-circle"/>
+                        : null
+                    }
                 </h3>
                 <div className="progress-bar">
                     {percent
