@@ -17,12 +17,12 @@ class VoteReport extends Component {
                 <h3>{this.props.text}
                 </h3>
                 <div className="progress-bar">
-                    <div className="progress-bar-inner" style={innerStyle}>
-                        {percent 
-                            ? <span className="progress-bar-text">{`${percent}%`}</span>
-                            : null
-                        }
-                    </div>
+                    {percent
+                        ?  <div className="progress-bar-inner" style={innerStyle}>
+                                <span className="progress-bar-text">{`${percent}%`}</span>
+                            </div>
+                        : <span>{`${percent}%`}</span>
+                    }
                 </div>
                 <p>{`${this.props.numVotes} out of ${this.props.totalVotes} votes`}</p>
             </div>
