@@ -71,10 +71,11 @@ button:disabled {
   border-bottom: 1px solid #555555;
 }
 
-/* Question Styles */
+/* Question List Styles */
 
 .question-list-nav {
   width: 100%;
+  min-width: 525.13px;
   margin-bottom: 0;
   display: flex;
   justify-content: space-between;
@@ -95,6 +96,8 @@ button:disabled {
   margin-top: 0;
   padding-top: 0;
 }
+
+/* Question Preview Styles */
 
 .question-preview {
   align-self: flex-start;
@@ -127,6 +130,32 @@ button:disabled {
 
 .question-preview-btn:disabled {
   background-color: #dddddd;
+}
+
+/* Question Card Styles */
+
+.question {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 128px;
+  margin-right: 1em;
+  width: 50%;
+}
+
+.question h2 {
+  margin: 0 0 .3em 0;
+}
+
+.question-form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.question-form-container button {
+  width: 100%;
+  margin-top: .5em;
 }
 
 /* Leader Styles */

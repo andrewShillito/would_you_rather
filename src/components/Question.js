@@ -26,16 +26,17 @@ class Question extends Component {
 
         return (
           <div className="question">
-              <h1 className="question-title">Would You Rather ...</h1>
+              <h2 className="question-title">Would You Rather ...</h2>
               <div className="question-form-container">
                   <form id="question-form" onSubmit={this.handleSubmit}>
                       <input type="radio" name="answer" id="optionOne" value="optionOne"
-                          onChange={this.handleChange} checked={this.state.selected === "optionOne"}
-                      ></input>
+                          onChange={this.handleChange} checked={this.state.selected === "optionOne"}>
+                      </input>
                       <label htmlFor="optionOne">{question.optionOne.text}</label>
+                      <br />
                       <input type="radio" name="answer" id="optionTwo" value="optionTwo"
-                          onChange={this.handleChange} checked={this.state.selected === "optionTwo"}
-                      ></input>
+                          onChange={this.handleChange} checked={this.state.selected === "optionTwo"}>
+                      </input>
                       <label htmlFor="optionTwo">{question.optionTwo.text}</label>
                   </form>
                   <button type="submit" form="question-form">Submit</button>
