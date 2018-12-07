@@ -342,6 +342,7 @@ button:disabled {
 .progress-bar {
   height: 40px;
   border: 2px solid #555555;
+  border-right: none;
 }
 
 .progress-bar-inner {
