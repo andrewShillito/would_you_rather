@@ -24,6 +24,12 @@ class New extends Component {
             [name]: value,
         }));
     }
+    verifyInput = () => { //returns true if valid, false if invalid
+        return (
+            (this.state.optionOne !== '' && this.state.optionTwo !== "") &&
+            (this.state.optionOne.length <= 40 && this.state.optionTwo.length <= 40)
+        );
+    }
     render() {
         return (
             <div className="new">
@@ -32,9 +38,18 @@ class New extends Component {
                     <input type="text" name="optionOne" placeholder="Option One" onChange={this.handleChange} />
                     <input type="text" name="optionTwo" placeholder="Option Two" onChange={this.handleChange} />
                 </form>
-                <button type="submit" form="new-form" disabled={!(this.state.optionOne !== '' && this.state.optionTwo !== "")}>Submit</button>
+                <button type="submit" form="new-form" disabled={!this.verifyInput()}>Submit</button>
+                {!this.verifyInput()
+                    ? <span className="input-warning">
+                        {this.state.optionOne === '' || this.state.optionTwo === ''
+                            ? "Must complete both options"
+                            : this.state.optionOne.length > 40 ? `Option One must be 40 characters or less` : `Option Two must be 40 characters or less`
+                        }        
+                    </span>
+                    : <span className="input-success">Ready to Submit</span>
+                }
             </div>
-        )
+        );
     }
 }
 

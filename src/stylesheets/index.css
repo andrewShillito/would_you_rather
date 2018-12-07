@@ -100,37 +100,25 @@ button:disabled {
 /* Question Preview Styles */
 
 .question-preview {
-  align-self: flex-start;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
   height: 128px;
+  width: 70%;
 }
 
 .question-preview-text {
-  margin: auto 1em .5em 0;
-  font-size: 18px;
+  font-size: 24px;
+  width: 80%;
 }
 
-.question-preview-btn {
+.fa-arrow-right {
+  width: 20%;
+  font-size: 30px;
+  color: #439ef9;
   text-decoration: none;
-  padding: 12px 28px;
-  margin-right: 1em;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  background-color: #208c39;
-  font-size: 18px;
 }
 
-.question-preview-btn:hover {
-  background-color: #28a745;
-  cursor: pointer;
-}
-
-.question-preview-btn:disabled {
-  background-color: #dddddd;
-}
 
 /* Question Card Styles */
 
@@ -138,24 +126,23 @@ button:disabled {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 128px;
-  margin-right: 1em;
-  width: 50%;
+  /*height: 128px;*/
+  margin: 0 .5em;
+  width: 70%;
 }
 
 .question h2 {
   margin: 0 0 .3em 0;
 }
 
-.question-form {
-  display: flex;
-  flex-direction: column;
-}
-
 
 .question-form-container button {
   width: 100%;
   margin-top: .5em;
+}
+
+#question-form label {
+  font-size: 18px;
 }
 
 /* Leader Styles */
@@ -284,7 +271,17 @@ button:disabled {
 
 .new button {
   font-size: 1.5em;
+  /*margin: 0 0 1em 0;*/
+}
+
+.input-warning {
   margin: 0 0 1em 0;
+  color: red;
+}
+
+.input-success {
+  margin: 0 0 1em 0;
+  color: #208c39;
 }
 
 /* Login Styles */
@@ -341,7 +338,7 @@ button:disabled {
 
 .progress-bar {
   height: 40px;
-  border: 2px solid #555555;
+  border: 2px solid #555;
   border-right: none;
 }
 
