@@ -363,3 +363,11 @@ button:disabled {
 .selected {
   background-color: #97efad;
 }
+
+.fa-check-circle {
+  font-size: 30px;
+  float: right;
+  color: #439ef9;
+  /*margin-right: .1em;*/
+  margin-left: 0;
+}
