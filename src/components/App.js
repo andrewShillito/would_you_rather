@@ -22,11 +22,14 @@ class App extends Component {
     this.props.dispatch(handleInitialData());
   }
   render() {
+    
+    const { users, questions, authedUser, } = this.props;
+    
     return (
 
       <Router>
         <div className="app">
-          <Nav loggedIn={this.props.authedUser !== null} authedUser={this.props.authedUser}/>
+          <Nav loggedIn={authedUser !== null} authedUser={authedUser}/>
           { this.props.authedUser !== null
           ? <div className="content">
               <Switch>
@@ -41,21 +44,24 @@ class App extends Component {
                   );
                 }} />
                 <Route path="/questions/:qid" render={props => {
+                  console.log("question id props:", props);
                   const qid = props.match.params.qid;
-                  return ( this.props.questions[qid].optionOne.votes.includes(this.props.authedUser) ||
-                  this.props.questions[qid].optionTwo.votes.includes(this.props.authedUser) )
-                  ? <UserCard>
-                      <Title title={`Asked by ${this.props.users[this.props.questions[qid].author].name}`}/>
-                      <Avatar user={this.props.questions[qid].author} />
-                      <Answer qid={qid} />
-                    </UserCard>
-
-                  : <UserCard>
-                      <Title title={`${this.props.users[this.props.questions[qid].author].name} asks:`}/>
-                      <Avatar user={this.props.questions[qid].author} />
-                      <Question qid={qid}/>
-                    </UserCard>;
-                }} />
+                  if (questions[qid] !== undefined) {
+                      return (questions[qid].optionOne.votes.includes(authedUser) ||
+                      questions[qid].optionTwo.votes.includes(authedUser))
+                        ? <UserCard>
+                            <Title title={`Asked by ${users[this.props.questions[qid].author].name}`}/>
+                            <Avatar user={questions[qid].author} />
+                            <Answer qid={qid} />
+                          </UserCard>
+                        : <UserCard>
+                            <Title title={`${users[questions[qid].author].name} asks:`}/>
+                            <Avatar user={questions[qid].author} />
+                            <Question qid={qid}/>
+                          </UserCard>; 
+                      }
+                      return (<h1>404 question not found</h1>);
+                  }} /> 
                 <Route path="/users/:id" render={props => {
                   return (
                     <User id={props.match.params.id}/>
