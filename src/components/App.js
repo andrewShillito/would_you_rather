@@ -12,9 +12,10 @@ import QuestionList from "./QuestionList";
 import New from "./New";
 
 import UserCard from "./UserCard";
-import Leader from "./Leader";
 import Avatar from "./Avatar";
 import Title from "./Title";
+import User from "./User";
+
 
 class App extends Component {
   componentDidMount() {
@@ -57,11 +58,7 @@ class App extends Component {
                 }} />
                 <Route path="/users/:id" render={props => {
                   return (
-                    <UserCard>
-                      <Title title={this.props.users[props.match.params.id].name}/>
-                      <Avatar user={props.match.params.id} />
-                      <Leader id={props.match.params.id} />
-                    </UserCard>
+                    <User id={props.match.params.id}/>
                   );
                 }} />
               </Switch>
