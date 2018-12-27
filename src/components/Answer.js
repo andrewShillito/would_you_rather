@@ -13,7 +13,6 @@ class Answer extends Component {
 
         return (
           <div className="answer">
-              <h1>Results:</h1>
               <VoteReport
                   selected={answer === "optionOne"}
                   text={`Would you rather ${question.optionOne.text}?`}
