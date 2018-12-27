@@ -8,15 +8,15 @@ import Score from "./Score";
 
 class LeaderBoard extends Component {
     render() {
-        const { leaders } = this.props;
+        const { leaders, users } = this.props;
         return (
             <div className="leader-board">
                 {leaders.map((leader) => (
                     <UserCard key={leader.id} >
-                        <Title title={this.props.users[leader.id].name} />
+                        <Title title={users[leader.id].name} />
                         <Avatar user={leader.id} />
                         <Leader id={leader.id} />
-                        <Score score={Object.keys(this.props.users[leader.id].answers).length + this.props.users[leader.id].questions.length}/>
+                        <Score score={Object.keys(users[leader.id].answers).length + users[leader.id].questions.length}/>
                     </UserCard>
                 ))}
             </div>
