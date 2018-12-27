@@ -25,7 +25,7 @@ class Nav extends Component {
             <nav className="nav">
                 <ul className="nav-menu">
                     <li className="nav-item">
-                        <NavLink to="/questions/new" onClick={this.handleClick} id={pathname === "/questions/new" ? "nav-active" : ""}>
+                        <NavLink to="/add" onClick={this.handleClick} id={pathname === "/add" ? "nav-active" : ""}>
                             New Question
                         </NavLink>
                     </li>

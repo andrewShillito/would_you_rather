@@ -35,7 +35,7 @@ class App extends Component {
               <Switch>
                 <Route path="/" exact component={QuestionList} />
                 <Route path="/leaderboard" component={LeaderBoard} />
-                <Route path="/questions/new" render={props => {
+                <Route path="/add" render={props => {
                   return (
                     <UserCard>
                       <Title title="Complete the Questions" />
