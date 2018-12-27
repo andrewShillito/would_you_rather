@@ -59,7 +59,9 @@ class QuestionList extends Component {
 }
 
 function mapStateToProps({ questions, users, authedUser }) {
-
+    //get answered and unanswered question arrays for authedUser
+    //sort arrays - most recent first
+    //send users object also to provide question creator (ask-er) names
     const user = users[authedUser];
     const answered = Object.keys(user.answers).map((qid) => questions[qid]).sort((a, b) => b.timestamp - a.timestamp);
     const unanswered = Object.keys(questions).filter((question) => !(question in user.answers))
