@@ -336,10 +336,29 @@ button:disabled {
   font-size: 20px;
 }
 
-.login-form-container button {
+.login-form-container button, .signup-container button {
   font-size: 20px;
   width: 100%;
   margin: 1em 0 1em 0;
+}
+
+/* Sign Up Form Styles */
+
+.signup-container {
+  width: 90%;
+}
+
+#signup-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+#signup-form input {
+  width: 100%;
+  font-size: 24px;
+  margin-top: 1em;
 }
 
 /* Answer Card Styles */
