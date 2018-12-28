@@ -27,7 +27,6 @@ class App extends Component {
     const { users, questions, authedUser, loading} = this.props;
     
     return (
-
       <Router>
         <div className="app">
           <Nav loggedIn={authedUser !== null} authedUser={authedUser}/>

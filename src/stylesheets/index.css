@@ -22,13 +22,16 @@ code {
 
 /* App Styles */
 
+.app {
+    animation: fade-in .2s normal linear;
+}
+
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   margin-top: 1.5em;
-  animation: fade-in .2s normal linear;
 }
 
 /* Button Styles */
@@ -38,6 +41,7 @@ button {
   background-color: #208c39;
   color: white;
   padding: .4em 0 .4em 0;
+  transition: background-color .2s linear;
 }
 
 button:hover {
@@ -89,8 +93,16 @@ button:disabled {
   border: none;
 }
 
+.question-list-nav button:hover {
+  color: #439ef9;
+}
+
 .question-list-nav button:disabled {
   background-color: #555555;
+}
+
+.question-list-nav button[disabled]:hover {
+  color: white;
 }
 
 .question-list-cards {
@@ -118,8 +130,12 @@ button:disabled {
   font-size: 30px;
   color: #439ef9;
   text-decoration: none;
+  transition: color .15s linear;
 }
 
+.fa-arrow-right:hover {
+  color: #265789;
+}
 
 /* Question Card Styles */
 
@@ -223,6 +239,11 @@ button:disabled {
 .nav ul li a {
   text-decoration: none;
   color: white;
+  transition: color .15s linear;
+}
+
+.nav ul li a:hover {
+  color: #439ef9;
 }
 
 .nav-menu {
@@ -526,7 +547,7 @@ button:disabled {
   }
 }
 
-/* App-wide fade in animations */
+/* App-wide fade animations */
 
 @keyframes fade-in {
   from { opacity: 0 }
