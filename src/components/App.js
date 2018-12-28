@@ -70,7 +70,13 @@ class App extends Component {
               </Switch>
               }
             </div>
-          : loading ? <LoadingCircle/> : <Login />
+          : loading 
+            ? <LoadingCircle/> 
+            : <div className="content">
+                <UserCard>
+                  <Login />
+                </UserCard>
+              </div>
         }
         </div>
     </Router>
