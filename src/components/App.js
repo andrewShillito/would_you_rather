@@ -26,6 +26,16 @@ class App extends Component {
     
     const { users, questions, authedUser, loading} = this.props;
     
+    if (loading === true) {
+      return (
+        <Router>
+          <div className="app">
+            <LoadingCircle />
+          </div>
+        </Router>
+      );
+    }
+    
     return (
 
       <Router>
@@ -34,7 +44,7 @@ class App extends Component {
           { this.props.authedUser !== null
           ? <div className="content">
               <Switch>
-                <Route path="/" exact render={props => loading ? <LoadingCircle /> : <QuestionList />} />
+                <Route path="/" exact component={QuestionList}/>
                 <Route path="/leaderboard" component={LeaderBoard} />
                 <Route path="/add" render={props => {
                   return (
@@ -85,7 +95,6 @@ function mapStateToProps({ authedUser, users, questions, loading }) {
     questions,
     users,
     loading,
-    // todo: implement loading functionality
   };
 }
 
