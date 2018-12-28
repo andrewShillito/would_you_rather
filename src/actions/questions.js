@@ -1,4 +1,5 @@
 import { saveQuestionAnswer, saveQuestion } from "../utils/api";
+import { startLoading, endLoading } from "./loading";
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const ANSWER_QUESTION = "ANSWER_QUESTION";
@@ -20,12 +21,15 @@ export function answerQuestion(payload) {
 
 export function handleAnswerQuestion(payload) {
     return dispatch => {
+        dispatch(startLoading());
         saveQuestionAnswer(payload) // func accepts { authedUser, qid, answer }
             .then(() => {
                 dispatch(answerQuestion(payload));
             })
+            .then(() => dispatch(endLoading()))
             .catch(err => {
                 console.log(err);
+                dispatch(endLoading());
             });
     };
 }
@@ -39,12 +43,15 @@ export function createQuestion(question) {
 
 export function handleCreateQuestion(question) { //question must be object with author, optionOne, and optionTwo properties
     return dispatch => {
+        dispatch(startLoading());
         saveQuestion(question)
             .then((newQuestion) => { //receives formatted question as response
                 dispatch(createQuestion(newQuestion));
             })
+            .then(() => dispatch(endLoading()))
             .catch(err => {
                 console.log(err);
+                dispatch(endLoading());
             });
     };
 }

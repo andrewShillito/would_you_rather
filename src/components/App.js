@@ -26,16 +26,6 @@ class App extends Component {
     
     const { users, questions, authedUser, loading} = this.props;
     
-    if (loading !== false) {
-      return (
-        <Router>
-          <div className="app">
-            <LoadingCircle />
-          </div>
-        </Router>
-      );
-    }
-    
     return (
 
       <Router>
@@ -43,6 +33,7 @@ class App extends Component {
           <Nav loggedIn={authedUser !== null} authedUser={authedUser}/>
           { this.props.authedUser !== null
           ? <div className="content">
+              {loading ? <LoadingCircle /> : 
               <Switch>
                 <Route path="/" exact component={QuestionList}/>
                 <Route path="/leaderboard" component={LeaderBoard} />
@@ -78,8 +69,9 @@ class App extends Component {
                   );
                 }} />
               </Switch>
+              }
             </div>
-          : <Login />
+          : loading ? <LoadingCircle/> : <Login />
         }
         </div>
     </Router>

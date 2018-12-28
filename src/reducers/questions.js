@@ -20,11 +20,9 @@ export default function questions(store = {}, action) {
                 }
             };
         case CREATE_QUESTION :
-            // need to update questions
             return {
                 ...store,
                 [action.question.id]: action.question,
-                //I think this is right, i think I don't need to spread it
             };
         default:
             return store;
