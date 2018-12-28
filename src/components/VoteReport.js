@@ -10,7 +10,7 @@ class VoteReport extends Component {
             width,
             height: "100%",
             backgroundColor: "#439ef9",
-        }
+        };
 
         return (
             <div className={this.props.selected ? "vote-report selected" : "vote-report"}>

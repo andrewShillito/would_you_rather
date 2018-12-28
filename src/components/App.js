@@ -16,6 +16,7 @@ import Avatar from "./Avatar";
 import Title from "./Title";
 import User from "./User";
 
+import LoadingCircle from "./LoadingCircle";
 
 class App extends Component {
   componentDidMount() {
@@ -23,7 +24,7 @@ class App extends Component {
   }
   render() {
     
-    const { users, questions, authedUser, } = this.props;
+    const { users, questions, authedUser, loading} = this.props;
     
     return (
 
@@ -33,7 +34,7 @@ class App extends Component {
           { this.props.authedUser !== null
           ? <div className="content">
               <Switch>
-                <Route path="/" exact component={QuestionList} />
+                <Route path="/" exact render={props => loading ? <LoadingCircle /> : <QuestionList />} />
                 <Route path="/leaderboard" component={LeaderBoard} />
                 <Route path="/add" render={props => {
                   return (
@@ -77,12 +78,13 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, users, questions }) {
+function mapStateToProps({ authedUser, users, questions, loading }) {
   return {
     authedUser,
     name: authedUser !== null ? users[authedUser].name : null,
     questions,
     users,
+    loading,
     // todo: implement loading functionality
   };
 }
