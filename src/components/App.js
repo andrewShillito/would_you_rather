@@ -26,7 +26,7 @@ class App extends Component {
     
     const { users, questions, authedUser, loading} = this.props;
     
-    if (loading === true) {
+    if (loading !== false) {
       return (
         <Router>
           <div className="app">
@@ -55,7 +55,6 @@ class App extends Component {
                   );
                 }} />
                 <Route path="/questions/:qid" render={props => {
-                  console.log("question id props:", props);
                   const qid = props.match.params.qid;
                   if (questions[qid] !== undefined) {
                       return (questions[qid].optionOne.votes.includes(authedUser) ||

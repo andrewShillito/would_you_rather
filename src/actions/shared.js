@@ -5,7 +5,6 @@ import { startLoading, endLoading } from "./loading";
 
 export function handleInitialData() {
     return dispatch => {
-        // todo: implement loading bar
         dispatch(startLoading());
         return getInitialData()
             .then(({ users, questions }) => {

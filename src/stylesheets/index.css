@@ -385,14 +385,14 @@ button:disabled {
 .inner-circle-1 {
   height: 192px;
   width: 192px;
-  border-color: black transparent transparent;
+  border-color: #555555 transparent transparent;
   animation: loading-circle-1 1.8s infinite ease-in-out;
 }
 
 .inner-circle-2 {
   height: 160px;
   width: 160px;
-  border-color: transparent transparent black transparent;
+  border-color: transparent transparent #555555 transparent;
   top: 16px;
   left: 16px;
   animation: loading-circle-2 1.8s infinite ease-in-out;
@@ -402,7 +402,7 @@ button:disabled {
 .inner-circle-3 {
   height: 112px;
   width: 112px;
-  border-color: transparent transparent transparent black;
+  border-color: transparent transparent transparent #555555;
   top: 40px;
   left: 40px;
   animation: loading-circle-3 1.8s infinite ease-in-out;
@@ -411,7 +411,7 @@ button:disabled {
 .inner-circle-4 {
   height: 80px;
   width: 80px;
-  border-color: black transparent transparent transparent;
+  border-color: #555555 transparent transparent transparent;
   top: 56px;
   left: 56px;
   animation: loading-circle-4 1.8s infinite linear;
@@ -420,7 +420,7 @@ button:disabled {
 .inner-circle-5 {
   height: 48px;
   width: 48px;
-  border-color: transparent black transparent transparent;
+  border-color: transparent #555555 transparent transparent;
   top: 72px;
   left: 72px;
   animation: loading-circle-5 1.8s infinite ease-in-out;
