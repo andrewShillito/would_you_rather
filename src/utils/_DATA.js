@@ -188,7 +188,7 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
             [qid]: answer
           }
         }
-      }
+      };
 
       questions = {
         ...questions,
@@ -199,11 +199,11 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
             votes: questions[qid][answer].votes.concat([authedUser])
           }
         }
-      }
+      };
 
-      res()
-    }, 500)
-  })
+      res();
+    }, 500);
+  });
 }
 
 function formatUser({ name, username, password }) {
@@ -212,11 +212,11 @@ function formatUser({ name, username, password }) {
     name: name,
     avatarURL: faker.image.avatar(),
     answers: {},
-    questions, //shorthand
+    questions: [],
   };
 }
 
-export function _createUser(user) {
+export function _saveUser(user) {
   return new Promise((res, rej) => {
     const formattedUser = formatUser(user);
     

@@ -1,4 +1,4 @@
-import { RECEIVE_USERS } from "../actions/users";
+import { RECEIVE_USERS, CREATE_USER } from "../actions/users";
 import { ANSWER_QUESTION, CREATE_QUESTION } from "../actions/questions";
 
 export default function users(store = {}, action) {
@@ -31,6 +31,11 @@ export default function users(store = {}, action) {
                     ...store[author],
                     questions: store[author].questions.concat([id]),
                 }
+            };
+        case CREATE_USER:
+            return {
+                ...store,
+                [action.user.id]: action.user,
             };
         default:
             return store;

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { login } from "../actions/authedUser";
+import { handleCreateUser } from "../actions/users";
 
 class Login extends Component {
     state = {
@@ -37,7 +38,11 @@ class Login extends Component {
     }
     handleSignUp = (e) => {
         e.preventDefault();
-        
+        this.props.dispatch(handleCreateUser({
+            name: this.state.name,
+            username: this.state.username,
+            password: this.state.password,
+        }));
     }
     render() {
         // todo: change to use a select box built of divs/a tags so can have user avatars included
