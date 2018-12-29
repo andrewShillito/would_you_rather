@@ -8,16 +8,25 @@ class Login extends Component {
         selected: "login",
         username: "",
         password: "",
+        confirmPassword: "",
+        warningMessage: "All fields are required",
     }
     handleLogin = (e) => {
         e.preventDefault();
         this.props.dispatch(login(this.state.value));
     }
-    handleChange = (e) => {
+    handleSelect = (e) => {
         const value = e.target.value;
         this.setState(() => ({
             value,
         }));
+    }
+    handleChange = e => {
+        const value = e.target.value;
+        const name = e.target.getAttribute("name");
+        this.setState(() => ({
+            [name]:value,
+        }), this.validateInput);
     }
     handleClick = (e) => {
         const value = e.target.value;
@@ -28,8 +37,47 @@ class Login extends Component {
     handleCreateUser = () => {
         
     }
+    // validateInput = () => {
+    //     if (this.state.selected === "signup") {
+    //         console.log("signup")
+    //         if ([this.state.username, this.state.password, this.state.confirmPassword].every((ele) => ele.length>0)) {
+    //             console.log("all have length");
+    //             if (this.state.password === this.state.confirmPassword) {
+    //                 console.log("passwords match");
+    //                 return true;
+    //             }
+    //             else {
+    //                 console.log("passwords do not match");
+    //                 this.setState(() => ({ warningMessage: "Passwords do not match"}));
+    //                 return false;
+    //             }
+    //         }
+    //         else {
+    //             console.log("all required");
+    //             this.setState(() => ({ warningMessage: "All fields are required"}));
+    //             return false;
+    //         }
+    //     }
+    //     else {
+    //         return false;
+    //     }
+    // }
     render() {
         // todo: change to use a select box built of divs/a tags so can have user avatars included
+
+        var validInput = false;
+        var warningMessage = "All fields are required";
+        
+        if (this.state.selected === "signup") {
+            if (this.state.username && this.state.password && this.state.confirmPassword) {
+                if (this.state.password === this.state.confirmPassword) {
+                    validInput = true;
+                }
+                else {
+                    warningMessage = "Passwords must match";
+                }
+            }
+        }
         return (
             <div className="login">
                 { this.props.users.length
@@ -43,7 +91,7 @@ class Login extends Component {
                             ? <div className="login-form-container">
                                 <h3>Select a User and Sign In</h3>
                                 <form onSubmit={this.handleLogin} id="login-form">
-                                    <select value={this.state.value} onChange={this.handleChange}>
+                                    <select value={this.state.value} onChange={this.handleSelect}>
                                         <option key="userPrompt" disabled></option>
                                         { this.props.users.map(user => (
                                             <option key={user.id} value={user.id}>
@@ -63,10 +111,14 @@ class Login extends Component {
                                 <h3>Create a username and password</h3>
                                 <form onSubmit={this.createUser} id="signup-form">
                                     <input type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder="username" />
-                                    <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
-                                    <input type="password" name="confirm-password" value={this.state.confirmPassword} onChange={this.handleChange} />
+                                    <input type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="password" />
+                                    <input type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange} placeholder="confirm password" />
                                 </form>
-                                <button type="submit" form="signup-form" className="signup-btn">Submit</button> 
+                                <button type="submit" form="signup-form" className="signup-btn" disabled={!validInput}>Submit</button>
+                                {validInput
+                                    ? <span className="input-success">Ready to Submit</span>
+                                    : <span className="input-warning">{warningMessage}</span>
+                                }
                               </div>
                         }
                     </Fragment>
