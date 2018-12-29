@@ -1,3 +1,5 @@
+const faker = require("faker");
+
 let users = {
   sarahedo: {
     id: 'sarahedo',
@@ -202,4 +204,29 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
       res()
     }, 500)
   })
+}
+
+function formatUser({ name, username, password }) {
+  return {
+    id: username,
+    name: name,
+    avatarURL: faker.image.avatar(),
+    answers: {},
+    questions, //shorthand
+  };
+}
+
+export function _createUser(user) {
+  return new Promise((res, rej) => {
+    const formattedUser = formatUser(user);
+    
+    setTimeout(() => {
+      users = {
+        ...users,
+        [formattedUser.id]: formattedUser,
+      };
+    }, 1000);
+    
+    res(formattedUser);
+  });
 }

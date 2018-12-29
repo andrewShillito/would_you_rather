@@ -6,6 +6,7 @@ class Login extends Component {
     state = {
         value: '',
         selected: "login",
+        name: "",
         username: "",
         password: "",
         confirmPassword: "",
@@ -34,34 +35,10 @@ class Login extends Component {
             selected: value,
         }));
     }
-    handleCreateUser = () => {
+    handleSignUp = (e) => {
+        e.preventDefault();
         
     }
-    // validateInput = () => {
-    //     if (this.state.selected === "signup") {
-    //         console.log("signup")
-    //         if ([this.state.username, this.state.password, this.state.confirmPassword].every((ele) => ele.length>0)) {
-    //             console.log("all have length");
-    //             if (this.state.password === this.state.confirmPassword) {
-    //                 console.log("passwords match");
-    //                 return true;
-    //             }
-    //             else {
-    //                 console.log("passwords do not match");
-    //                 this.setState(() => ({ warningMessage: "Passwords do not match"}));
-    //                 return false;
-    //             }
-    //         }
-    //         else {
-    //             console.log("all required");
-    //             this.setState(() => ({ warningMessage: "All fields are required"}));
-    //             return false;
-    //         }
-    //     }
-    //     else {
-    //         return false;
-    //     }
-    // }
     render() {
         // todo: change to use a select box built of divs/a tags so can have user avatars included
 
@@ -69,7 +46,7 @@ class Login extends Component {
         var warningMessage = "All fields are required";
         
         if (this.state.selected === "signup") {
-            if (this.state.username && this.state.password && this.state.confirmPassword) {
+            if (this.state.name && this.state.username && this.state.password && this.state.confirmPassword) {
                 if (this.state.password === this.state.confirmPassword) {
                     validInput = true;
                 }
@@ -78,6 +55,7 @@ class Login extends Component {
                 }
             }
         }
+        
         return (
             <div className="login">
                 { this.props.users.length
@@ -109,7 +87,8 @@ class Login extends Component {
                               </div>
                             : <div className="signup-container">
                                 <h3>Create a username and password</h3>
-                                <form onSubmit={this.createUser} id="signup-form">
+                                <form onSubmit={this.handleSignUp} id="signup-form">
+                                    <input type="text" name="name" value={this.state.name} onChange={this.handleChange} placeholder="name" />
                                     <input type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder="username" />
                                     <input type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="password" />
                                     <input type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange} placeholder="confirm password" />
