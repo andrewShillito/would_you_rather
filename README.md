@@ -6,7 +6,7 @@ This single page React-Redux app allows users to play the Would you Rather game 
 
 1. Login and User Signup
   * When signing up, user can generate a random avatar
-  * Login is handled via simple select box
+  * Login is handled via simple select box of existing users
 2. When logged in `/` Route shows two lists of question previews for the currently authed user sorted by most recent first:
   * Questions user has not answered - user can click arrow to answer the question at `/questions/:qid`
   * Questions user has answered - user can click arrow to see the poll results including their own answer at `/questions/:qid`
