@@ -381,6 +381,16 @@ button:disabled {
   max-width: 200px;
 }
 
+.signup-name-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.signup-name-container input {
+  max-width: 49%;
+}
+
 /* Answer Card Styles */
 
 .answer {

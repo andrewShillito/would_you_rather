@@ -8,7 +8,8 @@ class Login extends Component {
     state = {
         value: '',
         selected: "login",
-        name: "",
+        firstName: "",
+        lastName: "",
         username: "",
         password: "",
         confirmPassword: "",
@@ -43,8 +44,11 @@ class Login extends Component {
     }
     handleSignUp = (e) => {
         e.preventDefault();
+        const firstName = this.state.firstName;
+        const lastName = this.state.lastName;
+        const fullName = `${firstName.charAt(0).toUpperCase()}${firstName.slice(1)} ${lastName.charAt(0).toUpperCase()}${lastName.slice(1)}`;
         this.props.dispatch(handleCreateUser({
-            name: this.state.name,
+            name: fullName,
             username: this.state.username,
             password: this.state.password,
             avatarURL: this.state.avatarURL,
@@ -62,7 +66,7 @@ class Login extends Component {
         var warningMessage = "All fields are required";
         
         if (this.state.selected === "signup") {
-            if (this.state.name && this.state.username && this.state.password && this.state.confirmPassword) {
+            if (this.state.firstName && this.state.lastName && this.state.username && this.state.password && this.state.confirmPassword) {
                 if (this.state.password === this.state.confirmPassword) {
                     validInput = true;
                 }
@@ -102,9 +106,12 @@ class Login extends Component {
                                 </button>
                               </div>
                             : <div className="signup-container">
-                                <h3>Create a username and password</h3>
+                                <h3>Please complete all fields</h3>
                                 <form onSubmit={this.handleSignUp} id="signup-form">
-                                    <input type="text" name="name" value={this.state.name} onChange={this.handleChange} placeholder="name" />
+                                    <div className="signup-name-container">
+                                        <input type="text" name="firstName" value={this.state.firstName} onChange={this.handleChange} placeholder="first name" />
+                                        <input type="text" name="lastName" value={this.state.lastName} onChange={this.handleChange} placeholder="last name" />
+                                    </div>
                                     <input type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder="username" />
                                     <input type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="password" />
                                     <input type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange} placeholder="confirm password" />
