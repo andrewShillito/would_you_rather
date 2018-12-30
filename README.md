@@ -10,9 +10,9 @@ This single page React-Redux app allows users to play the Would you Rather game 
 2. When logged in `/` Route shows two lists of question previews for the currently authed user sorted by most recent first:
   * Questions user has not answered - user can click arrow to answer the question at `/questions/:qid`
   * Questions user has answered - user can click arrow to see the poll results including their own answer at `/questions/:qid`
-3. `/leaderboard` sorted by most points (num answered questions + num created questions)
-4. `/add` where users can create new questions - those polls are fully accessible and fully functional to users until app reload
-5. All avatars (outside of nav bar) can be clicked to view that users score information at `/users/:id`
+3. `/leaderboard` - sorted by most points (num answered questions + num created questions)
+4. `/add` - where users can create new questions - those polls are fully accessible and fully functional to users until app reload
+5. All avatars (outside of nav bar) can be clicked to view that user's score information at `/users/:id`
 
 ## Future Features
 
