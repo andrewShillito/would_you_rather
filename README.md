@@ -1,3 +1,22 @@
+# Would you Rather
+
+This single page React-Redux app allows users to play the Would you Rather game in browser.
+
+## Current Features
+
+1. Login and User Signup
+..* When signing up, user is assigned a random avatar - future features will include the ability for users to generate random avatars
+..* Login is handled via simple select box
+2. When logged in `/` Route shows two lists of question previews for the currently authed user sorted by most recent first:
+..* Questions user has not answered - user can click arrow to answer the question at `/questions/:qid`
+..* Questions user has answered - user can click arrow to see the poll results including their own answer at `/questions/:qid`
+3. `/leaderboard` sorted by most points (num answered questions + num created questions)
+4. `/add` where users can create new questions - those polls are fully accessible and fully functional to users until app reload
+5. All avatars (outside of nav bar) can be clicked to view that users score information at `/users/:id`
+
+
+### Create React App Details
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
