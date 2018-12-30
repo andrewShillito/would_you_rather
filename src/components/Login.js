@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { login } from "../actions/authedUser";
 import { handleCreateUser } from "../actions/users";
+import { generateAvatarURL } from "../utils/faker";
 
 class Login extends Component {
     state = {
@@ -12,6 +13,10 @@ class Login extends Component {
         password: "",
         confirmPassword: "",
         warningMessage: "All fields are required",
+        avatarURL: '',
+    }
+    componentDidMount() {
+        this.getNewAvatar();
     }
     handleLogin = (e) => {
         e.preventDefault();
@@ -42,6 +47,12 @@ class Login extends Component {
             name: this.state.name,
             username: this.state.username,
             password: this.state.password,
+            avatarURL: this.state.avatarURL,
+        }));
+    }
+    getNewAvatar = () => {
+        this.setState(() => ({
+            avatarURL: generateAvatarURL(),
         }));
     }
     render() {
@@ -98,6 +109,12 @@ class Login extends Component {
                                     <input type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder="password" />
                                     <input type="password" name="confirmPassword" value={this.state.confirmPassword} onChange={this.handleChange} placeholder="confirm password" />
                                 </form>
+                                <div className="gen-avatar">
+                                    <div className="avatar">
+                                        <img src={this.state.avatarURL} alt="avatar" />
+                                    </div>
+                                    <button className="gen-avatar-btn" onClick={this.getNewAvatar}>Get New Avatar</button>
+                                </div>
                                 <button type="submit" form="signup-form" className="signup-btn" disabled={!validInput}>Submit</button>
                                 {validInput
                                     ? <span className="input-success">Ready to Submit</span>

@@ -1,5 +1,3 @@
-const faker = require("faker");
-
 let users = {
   sarahedo: {
     id: 'sarahedo',
@@ -206,11 +204,11 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
   });
 }
 
-function formatUser({ name, username, password }) {
+function formatUser({ name, username, password, avatarURL }) {
   return {
     id: username,
     name: name,
-    avatarURL: faker.image.avatar(),
+    avatarURL,
     answers: {},
     questions: [],
   };

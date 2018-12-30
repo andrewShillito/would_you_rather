@@ -371,6 +371,16 @@ button:disabled {
   margin-bottom: .7em;
 }
 
+.gen-avatar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.gen-avatar-btn {
+  max-width: 200px;
+}
+
 /* Answer Card Styles */
 
 .answer {
